@@ -40,7 +40,7 @@ while (i >= 1){
 
 cout << endl << endl;
 
-i = length;
+
 
 int l = 1;
 
@@ -57,7 +57,7 @@ int  k = length;
         -- k;
    }
 
-    cout<<endl;
+    cout << endl;
 
     l ++;
 }
@@ -65,9 +65,9 @@ int  k = length;
 
 ////////////////////////////////////////////////////////
 
-i = length;
 
 cout << endl << endl;
+
 
 l = 1;
 
@@ -84,7 +84,7 @@ while (l <= length){
         -- k;
    }
 
-    cout<<endl;
+    cout << endl;
 
      ++l;
 }
