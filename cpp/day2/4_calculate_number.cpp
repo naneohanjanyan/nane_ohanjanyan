@@ -17,6 +17,14 @@ int main()
  cout << " Input number 2 : ";
  cin >> number2;
 
+while  (number2 == 0){
+  
+	 cout << " Input other number 2: ";
+
+	 cin >> number2;
+ 
+ }
+
  switch (operat) {
          case '+':
                 result = number1 + number2;
