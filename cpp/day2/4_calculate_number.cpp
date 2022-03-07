@@ -7,25 +7,18 @@ int main()
     double number1, number2, result;
     char operat;
 
- cout << " Input number 1 : ";
- cin >> number1;
+     cout << " Input number 1 : ";
+     cin >> number1;
 
- cout << " Input operator: ";
- cin >> operat;
+    cout << " Input operator: ";
+    cin >> operat;
 
 
- cout << " Input number 2 : ";
- cin >> number2;
+    cout << " Input number 2 : ";
+    cin >> number2;
 
-while  (number2 == 0){
-  
-	 cout << " Input other number 2: ";
-
-	 cin >> number2;
- 
- }
-
- switch (operat) {
+   
+    switch (operat) {
          case '+':
                 result = number1 + number2;
 
@@ -48,11 +41,21 @@ while  (number2 == 0){
                  break;
 
         case '/':
-                result = number1 / number2;
+             if (number2 == 0){
+		  
+		     cout << " Division by 0 is not possible \n";
+	       
+		     break;
+		    
+	     } else {
 
-                 cout << number1 << " / " << number2 << " = " << result << "\n";
+   	     	result = number1 / number2;
 
+                cout << number1 << " / " << number2 << " = " << result << "\n";
+	     
                  break;
+
+	    }
 
         default:
                 cout << " It's not an operator \n";
