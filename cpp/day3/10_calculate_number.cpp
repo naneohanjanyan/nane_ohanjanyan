@@ -2,13 +2,13 @@
 
 using namespace std;
 
-
   double f ( double number1, double number2, char operat) {
 		  
   double result;
    
     switch (operat) {
-         case '+':
+
+       case '+':
                 result = number1 + number2;
 
                  cout << number1 << " + " << number2 << " = " << result << "\n";
