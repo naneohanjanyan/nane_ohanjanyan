@@ -4,6 +4,23 @@
 
 using namespace std;
 
+void sort (int arr[], int n){
+  
+  int m;
+  
+  for (int i = 0; i <n; i++) {
+             
+	for ( int j = i+1; j < n; j++){
+
+		if ( arr [i] > arr [j]){
+                   
+			m = arr[i];
+			arr[i] = arr[j];
+			arr[j] = m;
+		}
+	}
+  }
+}
 
 int main () {
 
@@ -25,23 +42,11 @@ srand(time(0));
 
 cout << endl;
  
- int m;
-  
-  for (int i = 0; i <n; i++) {
-             
-	for ( int j = i+1; j < n; j++){
+ sort (arr, n);
+ 
+ 
 
-		if ( arr [i] > arr [j]){
-                   
-			m = arr[i];
-			arr[i] = arr[j];
-			arr[j] = m;
-		}
-	}
-  }
-
-
-   for (int i = 0; i < 10; i++){
+   for (int i = 0; i < n; i++){
 
           cout << arr[i] << "   ";
   }
