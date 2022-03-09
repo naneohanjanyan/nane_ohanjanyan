@@ -15,19 +15,20 @@ srand(time(0));
 
   cin >> n;
 
-  int arr [n], m;
+ int  arr [n];
+ int  m = 0;
 
 
   for (int i = 0; i < n; i++){
 	
-	  arr[i] = rand () % 100;
+	  arr[i] =  rand () % 100;
 
           cout << arr[i] << "   ";
   }
 
 cout << endl;
   
-  for (int i = 0; i < n + 1; i++) {
+  for (int i = 0; i < n; i++) {
              
 	for ( int j = 0; j < n; j++){
 
