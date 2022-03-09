@@ -2,14 +2,13 @@
 
 using namespace std;
 
-
 void f ( int number ){
 
    int sum = 0, n = 1, arr [10];
 
    if (number > 0) {
 
-	while ( n != number ) {
+	 for (int n = 1; n != number; n++ ) {
 
         int j = 0;
 
@@ -22,9 +21,7 @@ void f ( int number ){
 	      j++;
           }
 
-           n++;
-
-         }
+      }
 	 
 	if ( number == sum){
       		cout << " this is a perfect number " << endl;
