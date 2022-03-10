@@ -38,6 +38,7 @@ int main () {
 
   int number;
   
+  cout << " Enter the number: ";  
   cin >> number;
 
   f (number);
