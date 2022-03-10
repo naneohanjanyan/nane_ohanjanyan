@@ -4,13 +4,13 @@
 
 using namespace std;
 
-void sort (int arr[], int n){
+void sort (double arr[], int size){
   
-  int m;
+  double m;
   
-  for (int i = 0; i <n; i++) {
+  for (int i = 0; i <size; i++) {
              
-	for ( int j = i+1; j < n; j++){
+	for ( int j = i+1; j < size; j++){
 
 		if ( arr [i] > arr [j]){
                    
@@ -31,22 +31,23 @@ srand(time(0));
  cout << " Input size of the array: ";
 
   cin >> n;
-    int arr[n];
+  
+  const int size = n;
+    
+    double arr[size];
  
-      for (int i = 0; i < n; i++){
+      for (int i = 0; i < size; i++){
 	
-	  arr[i] = rand () % 100;
+	  arr[i] = rand () % 100 / 5.0;
 
           cout << arr[i] << "   ";
   }
 
 cout << endl;
  
- sort (arr, n);
+ sort (arr, size);
  
- 
-
-   for (int i = 0; i < n; i++){
+   for (int i = 0; i < size; i++){
 
           cout << arr[i] << "   ";
   }
