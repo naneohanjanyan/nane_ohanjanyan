@@ -4,7 +4,7 @@ using namespace std;
 
 void f ( int number ){
 
-   int sum = 0, n = 1, arr [10];
+   int sum = 0, n = 1;
 
    if (number > 0) {
 
@@ -14,9 +14,7 @@ void f ( int number ){
 
           if ( number % n == 0){
 
-    	      arr [j] = n;
-
-              sum += arr [j];
+              sum += n;
              
 	      j++;
           }
