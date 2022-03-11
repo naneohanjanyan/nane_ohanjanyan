@@ -2,27 +2,38 @@
 
 using namespace std;
 
- void bin (int num){
-    
-    while (num != 0){
-    
-    cout << num % 2;
-    
-    num /= 2;
-    }
+
+void converbin (int num)
+{
+	int binaryNum[10000];
+
+	int i;
+	
+	for(i = 0; num > 0; i++) {
+
+		binaryNum[i] = num % 2;
+		num = num / 2;
+	}
+        
+	cout << "Binary of the given number = ";
+	
+	for (int j = i - 1; j >= 0; j--){
+	
+		cout << binaryNum[j];
+	}
 }
+int main()
+{
+     int binaryNum[1000], num;    
 
-int main() {
-   
-    int num;
+    cout<<"Enter the number to convert: ";    
 
-    cin >> num; 
-    
-    bin (num);
+    cin>>num;    
   
-    cout << endl;
-
-    
-    return 0;
+	converbin(num);
+	
+	cout << endl;
+	
+	return 0;
 }
 
