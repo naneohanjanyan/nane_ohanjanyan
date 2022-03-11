@@ -25,13 +25,9 @@ void converbin (int num)
 int main()
 {
      int binaryNum[1000], num;    
-
     cout<<"Enter the number to convert: ";    
-
     cin>>num;    
-  
-	converbin(num);
-	
+ 	converbin(num);
 	cout << endl;
 	
 	return 0;
