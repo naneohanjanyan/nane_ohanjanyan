@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
  
 int main()
@@ -40,5 +41,7 @@ int main()
        
        cout << arr[i][size - 1] << endl;
     }
+
     return 0;
+
 }
