@@ -9,21 +9,21 @@ int main()
     int arr[size][size];
     
     
-    for(int i = 0; i < (size / 2); i++){
-        for(int j = i; j < (size - i); j++){  
+    for(int i = 0; i < size / 2; i++){
+        for(int j = i; j < size - i; j++){  
            
             arr[i][j] = value;
             value++;
         }
         
-        for(int j = 1; j < (size - i - i); j++){   
+        for(int j = 1; j < size - i - i; j++){   
             
-            arr[(j + i)][(size - i) - 1] = value;   
+            arr[j + i][(size - i) - 1] = value;   
             value++;
         }
         for(int j = (size - 2) - i; j >= i; j--){  
             
-            arr[(size - i) - 1][(j)] = value;            
+            arr[(size - i) - 1][j] = value;            
             value++;
         }
         for(int j = ((size - i) - 2); j > i; j--){
