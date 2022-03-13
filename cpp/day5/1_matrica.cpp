@@ -17,7 +17,7 @@ int main()
         
         for(int j = 0; j < m; j++){
             
-            arr[i][j] = 1 + rand() % 5;
+            arr[i][j] = 1 + rand() % 10;
             
             cout << arr [i][j] << "  ";
         }
