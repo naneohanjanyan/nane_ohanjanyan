@@ -3,6 +3,7 @@
 using namespace std;
 
 void sum1(int *a, int *b, int * sum) {
+    
     *a = 2;
     *sum = *a + *b;
     cout << " sum 1: " << *a << " + " << *b  << " = " << *sum << endl;
@@ -24,6 +25,7 @@ void sum3(int a, int b, int &sum) {
 }
 
 void sum4(int a, int *b, int &sum) {
+   
     a = 7;
     *b = 8;
     sum = a + *b;
