@@ -1,32 +1,37 @@
 #include <iostream>
-
+#include <time.h>
+#include <stdlib.h>
 using namespace std;
 
-void sum(int *ptr) {
+void sum(int *ptr, int size) {
 	
 	int amount = 0;
 
-	for( int i = 0; i < 5; i++){
+	for( int i = 0; i < size; i++) {
        	
 		amount += *(ptr + i);
 	}
   
-	cout << " sum = " << amount;
+	cout << " sum = " << amount << endl;
 }
 
 int main() {
-	int arr[5] = {1,2,8,0,6}, amount;
+srand(time(0));
+	
+	const int size = 5;
+	int arr[size], amount;
 	int * ptr;
 	ptr = arr;
     
-	for(int i = 0; i < 5; i++) {
-        
+	for(int i = 0; i < size; i++) {
+    		
+		arr[i] = rand() % 10 + 1;    
 		cout << arr[i] << "  ";
     	}
    	
 	cout << endl;
     	
-	sum(ptr);
+	sum(ptr, size);
    
     
     return 0;
