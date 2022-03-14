@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void sum(int *ptr, int size) {
+void reverse(int *ptr, int size) {
    
     int temp = 0;
 
@@ -32,7 +32,7 @@ int main() {
     ptr = arr;
     cout << endl;
     
-    sum(ptr, size);
+    reverse(ptr, size);
   
     for(int i = 0; i < size; i++) {
         
