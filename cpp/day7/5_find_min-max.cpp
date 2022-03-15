@@ -4,10 +4,27 @@
 
 using namespace std;
 
+void indMinAndMaxElementsOfArray ( int *ptr, int *min, int *max, int arr[], int size) {
+    
+    for (; ptr <= (arr + size - 1); *(ptr ++) ){
+        
+        if ( *max < *(ptr)){
+                          
+            *max = *(ptr);
+        }
+             
+	if (*min > *(ptr)){
+                
+            *min = *(ptr);
+        } 
+    } 
+    cout << " min = " << *min << "  max = " << *max << endl;
+}
+ 
 int main() {
     
     srand(time(0));
-    const int size = 5;
+    const int size = 9;
     int arr[size], temp;
     
     for(int i = 0; i < size; i++) {
@@ -18,29 +35,11 @@ int main() {
     
     cout << endl;
     
-    int *min, * max;
+    int *min, * max, *ptr = arr;
     min = &arr[4];
     max = &arr[0];
     
-    for (int i = 0; i < size; i ++){
-        
-        if ( *max < *(arr + i)){
-                          
-            *max = *(arr + i);
-        }
-             
-	if (*min > *(arr + i)){
-                
-            *min = *(arr + i);
-                
-        } 
-        
-    }
-    
-  cout << " min = " << *min << "  max = " << *max << endl;
- 
- 
+    indMinAndMaxElementsOfArray (ptr, min, max, arr, size);
    
     return 0;
 }
-
