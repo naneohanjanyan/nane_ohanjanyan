@@ -4,64 +4,48 @@
 
 using namespace std;
 
-int main(){
+int main() {
     
-    srand(time(0));
+srand(time(0));
     
-   const int row = 3, column = 4;
-   int arr[row][column];
+	const int row = 17, column = 4;
+   	int arr[row][column];
 
-    for( int i = 0; i < row; i++){
-        
-        for(int j = 0; j < column; j++){
+    	for(int i = 0; i < row; i++) {
+        	cout << i+1 <<".  " ; 
+        	for(int j = 0; j < column; j++) {
             
-            arr[i][j] = 1+ rand() % 20;
+            		arr[i][j] = 1+ rand() % 10;
+            		cout <<  arr [i][j] << "  ";
+        	}	
+        	 cout << endl;
+   	}
+
+	cout << endl;
+	   
+   	
+
+	for( int i = 0; i < row; i++) {
+        
+		int j;
+		for(j = 0; j < column; j++) {
             
-            cout << arr [i][j] << "  ";
-        }
-        
-         cout << endl;
-         
-   }
-   
-   cout << endl;
-  
-   int rowCount = 0;
-    
-    for(int i = 0; i < row; i++){
-        
-        int columnCount = 0;
-        
-        for(int j = 0; j < column; j++){
-          
-            if(arr[i][j] % 2 == 0) {
-              
-                columnCount++;
+            		if(arr[i][j] % 2 != 0) break;
+            
+			else if(j == column - 1 && arr[i][j] % 2 == 0) {
                 
-                if(columnCount == j){
-                  
-                  columnCount = arr[i][j];
-                }
-            }     
-            
-        }
-        
-        if(columnCount == column){
-           
-            cout << " The number of the first even line = " << i+1 << endl;
-            break;
-            rowCount = i-1;
-        
-        } else if( rowCount == row - 1){
-            
-                  cout << "NO" << endl;
-        }
-          
-         rowCount++;
+                		cout << " Even line number: " <<  i + 1 << endl;
+                        	return 0;
+             
+             		}
+            	}
          
-   }
+		if ( i == row - 1 && arr[i][j] % 2 != 0 ){
+                	
+			 cout << " No \n";
+                	 return 0;
+		}
+  	}
 
-
-
-return 0;
+ return 0;
 }
