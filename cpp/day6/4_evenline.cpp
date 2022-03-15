@@ -22,12 +22,9 @@ srand(time(0));
    	}
 
 	cout << endl;
-	   
-   	
-
+	
 	for( int i = 0; i < row; i++) {
-        
-		int j;
+        	int j;
 		for(j = 0; j < column; j++) {
             
             		if(arr[i][j] % 2 != 0) break;
@@ -36,9 +33,8 @@ srand(time(0));
                 
                 		cout << " Even line number: " <<  i + 1 << endl;
                         	return 0;
-             
-             		}
-            	}
+               		}
+           	}
          
 		if ( i == row - 1 && arr[i][j] % 2 != 0 ){
                 	
