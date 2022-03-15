@@ -3,13 +3,13 @@
 #include <stdlib.h>
 using namespace std;
 
-void sum(int *ptr, int size) {
+void sum(int *ptr, int size, int arr[]) {
 	
 	int amount = 0;
 
-	for( int i = 0; i < size; i++) {
+	while(ptr <= (arr + size -1 )) {
        	
-		amount += *(ptr + i);
+		amount += *(ptr ++);
 	}
   
 	cout << " sum = " << amount << endl;
@@ -31,7 +31,7 @@ srand(time(0));
    	
 	cout << endl;
     	
-	sum(ptr, size);
+	sum(ptr, size, arr);
    
     
     return 0;
