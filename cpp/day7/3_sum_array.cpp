@@ -1,6 +1,7 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+
 using namespace std;
 
 void sum(int *ptr, int size, int arr[]) {
@@ -16,6 +17,7 @@ void sum(int *ptr, int size, int arr[]) {
 }
 
 int main() {
+
 srand(time(0));
 	
 	const int size = 5;
@@ -33,6 +35,5 @@ srand(time(0));
     	
 	sum(ptr, size, arr);
    
-    
-    return 0;
+  return 0;
 }
