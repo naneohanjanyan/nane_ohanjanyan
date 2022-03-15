@@ -4,15 +4,15 @@
 
 using namespace std;
 
-void reverse(int *ptr, int size) {
+void reverse(int *ptr, int *ptr1, int size, int arr[]) {
    
     int temp = 0;
 
-    for( int i = 4, j = 0; j < size / 2; i--, j++){
+    for(;ptr <= (arr + size / 2); *(ptr1 --), *(ptr ++)){
        
-        temp =   *(ptr + i);
-        *(ptr + i) = *(ptr + j);
-        *(ptr + j) = temp;
+        temp =   *(ptr);
+        *(ptr) = *(ptr1);
+        *(ptr1) = temp;
     } 
     
 }
@@ -20,7 +20,7 @@ void reverse(int *ptr, int size) {
 int main() {
     srand(time(0));
     
-    const int size = 5;
+    const int size = 9;
     int arr[size], temp;
     
     for(int i = 0; i < size; i++) {
@@ -28,11 +28,13 @@ int main() {
         cout << arr[i] << "  ";
     }
     
-    int * ptr;
+    int * ptr, *ptr1;
     ptr = arr;
+    ptr1 = arr + size - 1;
     cout << endl;
     
-    reverse(ptr, size);
+   // cout << *(ptr1 --)<< "         ";
+   reverse(ptr, ptr1, size, arr);
   
     for(int i = 0; i < size; i++) {
         
