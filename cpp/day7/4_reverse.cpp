@@ -14,11 +14,11 @@ void reverse(int *ptr, int *ptr1, int size, int arr[]) {
         *(ptr) = *(ptr1);
         *(ptr1) = temp;
     } 
-    
 }
 
 int main() {
-    srand(time(0));
+   
+ srand(time(0));
     
     const int size = 9;
     int arr[size], temp;
@@ -33,7 +33,6 @@ int main() {
     ptr1 = arr + size - 1;
     cout << endl;
     
-   // cout << *(ptr1 --)<< "         ";
    reverse(ptr, ptr1, size, arr);
   
     for(int i = 0; i < size; i++) {
