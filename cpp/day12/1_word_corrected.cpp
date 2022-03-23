@@ -3,31 +3,6 @@
 
 using namespace std;
 
-string corrected(string word);
-
-int main() {
-
-ofstream correct_f;
-correct_f.open("corrected.txt");
-string str;
-cout << " Input line: ";
-getline(cin, str);
-str += " ";
-string word;
-int i = 0, a = 0;
-
-while(str[i] != '\0') {
-	word = "";
-	for(;str[i] != ' '; i++){
-		word += str[i];
-	}
-	i++;
-	correct_f << " " << corrected(word) << endl;
-}
-correct_f.close();
-return 0;
-}
-
 string corrected(string word) {
 	ifstream dict;
 	dict.open("dictionary.txt");
@@ -51,5 +26,29 @@ string corrected(string word) {
 	if(count != 1) {
 		return word;
 }
-	return word_corr;
+  return word_corr;
+}
+
+int main() {
+
+ofstream correct_f;
+correct_f.open("corrected.txt");
+string str;
+cout << " Input line: ";
+getline(cin, str);
+str += " ";
+string word;
+int i = 0;
+
+while(str[i] != '\0') {
+	word = "";
+	for(;str[i] != ' '; i++){
+		word += str[i];
+	}
+	i++;
+	correct_f << " " << corrected(word) << endl;
+}
+correct_f.close();
+
+return 0;
 }
