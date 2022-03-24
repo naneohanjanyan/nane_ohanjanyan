@@ -5,16 +5,6 @@ using namespace std;
 string translate_engl_to_arm(string);
 string translate_arm_to_eng(string);
 
-/*void language (int lang){
-  if(lang = 1) {
-      ofstream arm;
-      arm.open("hy-en.txt");
-  } else if( lang = 2) {
-      ofstream engl;
-      engl.open("en-hy.txt");
-  }
-
-}*/
 int main () {
 
 cout << " If transleted hy-en, Input  1, else input 2: ";
