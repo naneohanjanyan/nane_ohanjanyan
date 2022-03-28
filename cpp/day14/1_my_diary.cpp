@@ -10,8 +10,19 @@ struct date{
 	string command = "";
 };
 
+enum week_day{
+	Mon = 1,
+	Tue,
+	Wed,
+	Thu,
+	Fry,
+	Sut,
+	Sun
+}; 
+
 void add_date_to_string(string, int *, int *, int * );
 bool emptying(string);
+int weekDay(int, int , int);
 
 int main() {   
 
@@ -23,17 +34,29 @@ while(dateinput.command == "add") {
 	cout << " Input date (dd/mm/yy): ";
 	cin >> dateinput.Date;
 	cin.ignore();
-
 	cout << " Add Note: ";
 	getline(cin,dateinput.Note);
 	add_date_to_string(dateinput.Date,&dd,&mm, &yy);
-	
-	string file_name = to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy)+".txt";
+
+	string week_dayname = "";
+	int wday1 = weekDay(dd,mm,yy);
+	week_day weekday = (week_day)wday1;
+	switch(weekday) {                 
+		case Mon: week_dayname = "Monday"; break;
+		case Tue: week_dayname = "Tuesday"; break;
+		case Wed: week_dayname = "Wednesday"; break;
+		case Thu: week_dayname = "Thusday"; break;
+		case Fry: week_dayname = "Friday"; break;
+		case Sut: week_dayname = "Suturday"; break;
+		case Sun: week_dayname = "Sunday"; break;
+	}
+
+	string file_name = "./notes/" + to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy)+".txt";
 	fstream file;
 	file.open(file_name, fstream::in | fstream::out | fstream::app);
 	if(file.is_open()){
 		if (emptying(file_name)) {
-			file << dateinput.Date << "\t" <<  dateinput.Note << "\n";
+			file << week_dayname << "  " << dateinput.Date << "\t" <<  dateinput.Note << "\n";
 		} else {
 			file << "\t\t" <<  dateinput.Note << "\n";
 		}
@@ -99,5 +122,16 @@ bool emptying(string file_name) {
 	} else {
 		return false;
 	}
+}
+
+int weekDay(int dd,int mm,int yy) { 
+	int weeknum = dd + ((153 * (mm + 12 * ((14 - mm) / 12) - 3) + 2) / 5)
+		      + (365 * (yy + 4800 - ((14 - mm) / 12)))
+		      + ((yy + 4800 - ((14 - mm) / 12)) / 4)
+                      - ((yy + 4800 - ((14 - mm) / 12)) / 100)
+                      + ((yy + 4800 - ((14 - mm) / 12)) / 400)
+                      - 32045;
+
+    return (weeknum + 1) % 7 ;
 }
 
