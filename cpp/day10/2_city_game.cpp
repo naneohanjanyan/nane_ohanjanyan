@@ -6,27 +6,23 @@ using namespace std;
 
 void game(int);
 
-int PlayerChoose(int player) {
-	if(player == 1) {
-		return 1;
-	} else if(player == 2) {
-		return 2;
-	}
-	return 0;
-}
-
 int main() {
+	srand(time(0));
 	cout << " Choose player (user: 1, computer: 2): ";
 	int player;
 	cin >> player;
-	int choose = PlayerChoose(player);
+	int choose;// = PlayerChoose(player);
+	if(player == 1) {
+		choose = 1;
+	} else if(player == 2) {
+		choose = 2;
+	}
 	game(choose);
 
 return 0;
 }
 
 void game(int choose) {
-
 	string city[] = {"austin", "boston", "chicago", "columbia", "dayton", "denver", "glendale", "hollywood", "los angeles", "miami", "new orleans", "new york", "odessa", "philadelphia", "erevan", "moscow", "prague", "paris", "berlin", "ankara", "baku", "ekaterinburg","grozni", "irkutsk", "ninve", "valencia", "astana", "dublin", "zaltsburg", "pekin", "mumbai"};
 
  	int size = sizeof(city)/sizeof(city[0]);
