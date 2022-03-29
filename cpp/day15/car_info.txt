@@ -1,0 +1,5 @@
+Hyundai, 89000, 150000, 2.0, automatic, black
+Mercedes-Benz, 25900, 83220, 2.0, automatic, wite
+Ford, 8500, 150000, 1.5, automatic, gray
+Mercedes-Benz, 25900, 832000, 2.0, automatic, black
+Nissan, 5200, 120800, 1.5, automatic, red
