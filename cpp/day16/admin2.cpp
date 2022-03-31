@@ -38,7 +38,7 @@ cin >> info[9];
 cout << " Fitnes ( 1 or 0 ): ";
 cin >> info[9]; 
 
-fstrim hotel;
+fstriam hotel;
 hotel.open("hotel2.txt");
 if(hotel.is_open()) {
 	for (int i = 0; i < size; i++) {
@@ -50,7 +50,7 @@ if(hotel.is_open()) {
 		hotel << "\n";
 	}
 }
-hello.close();
+hotel.close();
 
 string command;
 cout << "Exit  or Countinue";
