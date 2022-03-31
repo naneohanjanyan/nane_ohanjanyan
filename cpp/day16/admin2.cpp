@@ -16,7 +16,7 @@ bool fitnes;
 
 loop:
 int size = 10;
-string info[size] = "";
+string info[size];
 cout << " Country: ";
 getline(cin,info[0]);
 cout << " City: ";
@@ -51,6 +51,7 @@ if(hotel.is_open()) {
 	}
 }
 hotel.close();
+
 
 string command;
 cout << "Exit  or Countinue";
