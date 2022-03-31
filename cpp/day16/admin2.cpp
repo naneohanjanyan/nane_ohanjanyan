@@ -35,7 +35,7 @@ cout << " Triple room: ";
 cin >> info[7];
 cout << " Spa ( 1 or 0 ): ";
 cin >> info[9];
-cout >> " Fitnes ( 1 or 0 ): ";
+cout << " Fitnes ( 1 or 0 ): ";
 cin >> info[9]; 
 
 fstrim hotel;
