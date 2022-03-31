@@ -18,11 +18,11 @@ loop:
 int size = 10;
 string info[size] = "";
 cout << " Country: ";
-getline(cin,info[0];
+getline(cin,info[0]);
 cout << " City: ";
-getline(cin,info[1];
+getline(cin,info[1]);
 cout << " Address: ";
-getline(cin,info[2];
+getline(cin,info[2]);
 cout << " Hotel name: ";
 getline(cin, info[3]);
 cout << " Star: ";
@@ -38,7 +38,7 @@ cin >> info[9];
 cout << " Fitnes ( 1 or 0 ): ";
 cin >> info[9]; 
 
-fstriam hotel;
+fstream hotel;
 hotel.open("hotel2.txt");
 if(hotel.is_open()) {
 	for (int i = 0; i < size; i++) {
