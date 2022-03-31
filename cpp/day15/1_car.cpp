@@ -50,8 +50,8 @@ while(!file.eof()){
 }
 file.close();
 cout << "Search modes: 0 - show, 1 - brand, 2 - model, 3 - min-price, 4 - max-price, 5 - min-mileage, 6 - max-mileage, 7 - transmission, 8 - color, 9 - engine power\n";
-bool condition = true;
-bool    brand_ = false, 
+bool 	condition = true,
+	brand_ = false, 
 	model_ = false, 
 	min_price_ = false,
 	max_price_ = false, 
