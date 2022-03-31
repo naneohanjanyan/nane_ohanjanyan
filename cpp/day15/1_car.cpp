@@ -25,7 +25,6 @@ while (getline(file1,str1)) {
 	 row++;
 }
 file1.close();
-
 struct information info[row];
 ifstream file;
 file.open("car_info.txt");
@@ -64,7 +63,6 @@ bool 	condition = true,
 string brand, model,  color, transm;
 int min_price, max_price, min_mileage, max_mileage;
 double power;
-
 while(condition) {
 	int mode;
 	cout << " Input search mode: ";
@@ -129,7 +127,6 @@ while(condition) {
 		break;
 	}
 }
-
 for ( int i = 0; i < row; i++) {
 	if (brand_ && brand != info[i].brand) continue;
 	if (model_ && model != info[i].model) continue;
@@ -142,11 +139,8 @@ for ( int i = 0; i < row; i++) {
 	if (power_ && power != info[i].power) continue;
 	print(info[i]);
 }
-
 return 0;
-
 }
-
 void print( information info){
 	cout << "================================================================\n";
 	cout << " Brand:        " << info.brand << endl;
