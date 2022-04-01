@@ -1,21 +1,14 @@
 #include <iostream>
-
 using namespace std;
 
-int main()
-{
+int main() {
 
 int chickens, cows, pigs;
-
 int sum = 0;
-
-  cout << " chickens = ";
-  
-  cin >> chickens;
-  
-  cout << " cows = ";
-  
-  cin >> cows;
+cout << " chickens = ";
+cin >> chickens;
+cout << " cows = ";
+cin >> cows;
   
   cout << " pigs = ";
   
