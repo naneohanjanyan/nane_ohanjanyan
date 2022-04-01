@@ -1,20 +1,16 @@
 #include <iostream>
 using namespace std;
+
 int main() {
 
 int number, b = 0, mult = 1;
-
 cout << " Number: ";
-
 cin >> number;
-
 while (b <= 10) {
-
-       	prod = number * b;
- 
+	mult = number * b;
 	cout << number << " * " << b << " = " << mult << "\n";
-
-       	b++;
+	b++;
 }
+
 return 0;
 }
