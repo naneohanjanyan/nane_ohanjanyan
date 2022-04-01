@@ -2,30 +2,21 @@
 
 using namespace std;
 
-   int years ( int year){
-
-     for (int i = 1; i <= 20;){
-
-      	if (year % 4 == 0 || year % 100 == 0 && year % 400 == 0){
-
-	cout << year << " leap year \n";
-       
-	i++;
-
-       	}
+void FindLeapYears ( int year){
+	for (int count = 1; count <= 20;){
+		if (year % 4 == 0 && year % 100 != 0){
+			cout << year << " Is leap year: " << endl;
+		count++;
+	}
         year ++;
- }
+	}
+}
 
-   return 0;
+int main() {
+int year;
+cout << " Input year: ";
+cin >> year;
 
-   }
-
-
-
-
-
-int main()
-{
-	return years (2017) ;
-
+FindLeapYears (year);
+return 0;
 }

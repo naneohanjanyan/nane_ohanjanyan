@@ -2,30 +2,21 @@
 
 using namespace std;
 
-  int fact (int number){
-
-  int faktoryal = 1;
-
-
+void Findfactoryal (int number){
+	int faktoryal = 1;
 	while (number > 0){
-
-    		faktoryal *= number;
-
-   		 number -- ;
-
+		faktoryal *= number;
+		 number -- ;
 	}
+	cout << " Faktoryal = " << faktoryal << "\n";
+}
 
-    cout << " Faktoryal = " << faktoryal << "\n";
+int main() {
 
-    return 0;
+int number;
+cout << " Number = ";
+cin >> number;
+Findfactoryal(number);
 
-  }
-
-
-
-int main()
-{
-
-	return fact (5);
-
+return 0;
 }

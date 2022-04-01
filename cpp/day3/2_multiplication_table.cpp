@@ -2,35 +2,21 @@
 
 using namespace std;
 
-   int number (int a){
-	
-   int b = 0, prod = 1;
-
-
-while (b <= 10) {
-
-       	prod = a * b;
- 
-	cout << a << " * " << b << " = " << prod << "\n";
-
-       	b++;
-
-}
-   
- 
-  
-
-    return 0;
+void  multiply_table (int number) {
+	int b = 0, multi = 1;
+	while (b <= 10) {
+		multi = number * b;
+		cout << number << " * " << b << " = " << multi << "\n";
+		b++;
+	}
 }
 
+int main() {
 
-
-
-
-int main()
-{
-
-	return number (14);
-
+int number;
+cout << " Input number: ";
+cin >> number;
+multiply_table (number);
+return 0;
 }
 

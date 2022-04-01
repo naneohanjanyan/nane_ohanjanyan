@@ -2,45 +2,34 @@
 
 using namespace std;
 
-   char f (char letter) {
-
+void check (char letter) {
 	if (letter >= 'a' && letter <= 'z' || letter >= 'A' && letter <= 'Z'){
-  		
-	    switch (letter){
- 
-		case 'a':  case 'A':
-		case 'e':  case 'E':
-		case 'i':  case 'I': 
-		case 'o':  case 'O':
-		case 'u':  case 'U':
-		
-		 cout << "'" << letter << "' is vowel \n";
-
-       		 break;
-
-		default: 
-		
-		 cout << "'" << letter << "' is consonant \n";
-
-       		 break;
-
+		switch (letter){
+			case 'a':  case 'A':
+			case 'e':  case 'E':
+			case 'i':  case 'I': 
+			case 'o':  case 'O':
+			case 'u':  case 'U':
+				cout << "'" << letter << "' is vowel \n";
+				break;
+			default: 
+				cout << "'" << letter << "' is consonant \n";
+				break;
 		}
-        
-    	} else {
-	
-      		cout << " It's not charecter \n ";
-
-   
+	} else {
+		cout << " It's not charecter \n ";
 	}
-    
-
-    return 0;
 }
 
 
 int main () {
 
-	return f ('a');
+char letter;
+cout << " Input the letter: ";
+cin >> letter;
+check(letter);
+
+return 0;
 
 }
 

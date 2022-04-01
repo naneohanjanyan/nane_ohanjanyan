@@ -2,115 +2,69 @@
 
 using namespace std;
 
-  int size ( int i ) {
-
-  const int length = i;
-  
-  while (i >= 1){
-
-    int j = 1;
-
-    while (j <= i){
-
-        cout << '*';
-
-        j ++;
-
-    }
-
-    cout << endl;
-
-    i --;
-
+void triangel1 (int size) {
+	for(int i = size ;i >= 1; i--){
+		int j = 1;
+		for(int j = 1; j <= i; j++){
+			cout << '*';
+		}
+	cout << endl;
+	}
 }
 
-
-///////////////////////////////////////////////////
-
-cout << endl << endl;
-
-
-
-int l = 1;
-
-while (l <= length){
-
-int  k = length;
-   
-    while(k >= 1){
-        
-        if (k <= l) cout << "*" << " ";
-        
-        else cout << " ";
-
-        -- k;
-   }
-
-    cout << endl;
-
-    l ++;
+void triangel2 (int size) {
+	for ( int l = 1; l <= size; l++){
+		for(int k = size; k >= 1; k--){
+			if (k <= l) {
+				cout << "*" << " ";
+        		} else {
+				 cout << " ";
+			}
+		}
+		cout << endl;
+	}
 }
 
-
-////////////////////////////////////////////////////////
-
-
-cout << endl << endl;
-
-
-l = 1;
-
-while (l <= length){
-
-    int  k = length;
-    
-    while(k >= 1){
-
-        if (k <= l) cout << "*";
-        
-        else cout << " ";
-
-        -- k;
-   }
-
-    cout << endl;
-
-     ++l;
+void triangel3 (int size) {
+	for( int i = 1; i <= size; i++){
+		for(int j = size; j >= 1; j--){
+			if (j <= i) {
+				 cout << "*";
+			} else {
+				 cout << " ";
+			}
+		}
+		cout << endl;
+	}
 }
 
-
-
-///////////////////////////////////////////
-
-cout << endl << endl;
-
- l = 1;
- 
-   while ( l <= length ){
-       
-       int j = 1;
-       
-       while ( j <= l){
-           
-           cout << "*";
-           
-           j++;
-       }
-       
-       cout << endl;
-       
-       l++;
-   }
-
-
-
-return 0;
+void triangel4 ( int size) {
+	for ( int i = 1; i <= size; i++ ){
+		for( int j = 1; j <= i; j++){
+			cout << "*";
+		}
+	cout << endl;
+	}
 }
-
-
 
 int main () {
 
-	return size (7);
+int size;
+cout << " Input size: ";
+cin >> size;
+
+triangel1(size);
+cout << endl;
+
+triangel2(size);	
+cout << endl;
+
+triangel3(size);
+cout << endl;
+
+triangel4(size);
+cout << endl;
+
+return 0;
 
 }
