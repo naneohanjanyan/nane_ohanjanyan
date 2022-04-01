@@ -1,30 +1,20 @@
 #include <iostream>
-
 using namespace std;
+int main() {
 
-int main()
-{
-
-int a, b = 0, prod = 1;
+int number, b = 0, mult = 1;
 
 cout << " Number: ";
 
-cin >> a;
+cin >> number;
 
 while (b <= 10) {
 
-       	prod = a * b;
+       	prod = number * b;
  
-	cout << a << " * " << b << " = " << prod << "\n";
+	cout << number << " * " << b << " = " << mult << "\n";
 
        	b++;
-
 }
-   
- 
-  
-
-    return 0;
+return 0;
 }
-
-
