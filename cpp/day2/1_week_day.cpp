@@ -5,7 +5,7 @@ using namespace std;
 int main () {
 
 int day;
-cout << "Input the  week day  ";
+cout << "Input the  week day number  ";
 cin >> day;
 switch (day){
 	case 1:
