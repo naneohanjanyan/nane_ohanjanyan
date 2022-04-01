@@ -5,55 +5,41 @@
 using namespace std;
 
 void sort (double arr[], int size){
-  
-  double m;
-  
-  for (int i = 0; i <size; i++) {
-             
-	for ( int j = i+1; j < size; j++){
-
-		if ( arr [i] > arr [j]){
-                   
-			m = arr[i];
-			arr[i] = arr[j];
-			arr[j] = m;
+	double temp;
+	for (int i = 0; i < size + 1; i++) {
+		for ( int j = 0; j < size - 1; j++){
+			if ( arr [j] > arr [j + 1]){
+                   		temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
 		}
+ 	 }
+}
+
+void print ( double arr[], int size) {
+	for (int i = 0; i < size; i++){
+          cout << arr[i] << "   ";
 	}
-  }
+	cout << endl;
 }
 
 int main () {
-
 srand(time(0));
 
-  int n;
+int size;
+cout << " Input size of the array: ";
+cin >> size;
+double *arr = new double [size];
 
- cout << " Input size of the array: ";
-
-  cin >> n;
-  
-  const int size = n;
-    
-    double arr[size];
- 
-      for (int i = 0; i < size; i++){
-	
-	  arr[i] = rand () % 100 / 5.0;
-
-          cout << arr[i] << "   ";
-  }
-
+for (int i = 0; i < size; i++){
+	arr[i] = rand () % 100 / 5.0;
+	cout << arr[i] << "   ";
+}
 cout << endl;
- 
- sort (arr, size);
- 
-   for (int i = 0; i < size; i++){
 
-          cout << arr[i] << "   ";
-  }
-
- cout << endl;
+sort (arr, size);
+print (arr,size);
 
 return 0;
-
 }
