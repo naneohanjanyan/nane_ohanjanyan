@@ -61,7 +61,6 @@ while(dateinput.command == "add") {
 			file << "\t\t" <<  dateinput.Note << "\n";
 		}
 	}
-
 	cout << " Command (add/exit): ";
 	cin >> dateinput.command;
 	if ( dateinput.command != "add" && dateinput.command != "exit") {
