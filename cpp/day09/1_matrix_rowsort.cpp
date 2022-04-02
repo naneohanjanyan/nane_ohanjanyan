@@ -1,41 +1,39 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
-#include "matrix.h"
+#include "../lib/matrix.h"
 using namespace std;
+
+void print_matrix(int** arr, int row, int column ) {
+	for (int** ptr = arr; ptr < arr + row; ptr++) {
+        	for (int* ptr1 = *ptr; ptr1 < *ptr + column; ptr1++) {
+            		cout << *ptr1 << " ";
+        }
+        cout << endl;
+    }
+}
 
 int main() {
 srand(time(0));
 
-int m, n;
-cout << " Enter height: ";
-cin >> m;
-cout << " Enter width: ";
-cin >> n;
+int row, column;
+cout << " Enter rows:   ";
+cin >> row;
+cout << " Enter column: ";
+cin >> column;
 
-int **arr = new int *[m];
-int **ptr = arr;
+int** arr = new int* [row];
 
-for(;ptr <= arr + m - 1; ptr++){
-	*ptr =  new int [n];
-	for(int *ptr1 = *ptr; ptr1 <= *ptr + n - 1; ptr1++) {
-
-		*ptr1 = rand() % 10;
-		cout << *ptr1 << "  ";
+for(int** ptr = arr; ptr < arr + row; ptr++){
+	*ptr =  new int [column];
+	for(int *ptr1 = *ptr; ptr1 < *ptr + column; ptr1++) {
+		*ptr1 = 1 + rand() % 10;
 	}
-	cout << endl;
 }
 
+print_matrix(arr, row, column);
 cout << endl;
-
-sort(arr, m, n);
-
-for(int **ptr = arr; ptr <= arr + m - 1; ptr++){
-	for(int *ptr1 = *ptr; ptr1 <= *ptr + n - 1; ptr1++) {
-
-		cout << *ptr1 << "  ";
-	}
-	cout << endl;
-}
+sort(arr, row, column);
+print_matrix(arr, row, column);
 return 0;
 }
