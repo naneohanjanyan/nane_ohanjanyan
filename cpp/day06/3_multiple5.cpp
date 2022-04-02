@@ -1,27 +1,17 @@
 #include <iostream>
-#include <time.h>
-#include <stdlib.h>
-using namespace std;
- 
- int main()
- {
-     srand(time(0));
-     const int m = 10;
-     int arr[m], j =0, a,b, tiv = 0;
-    
-    for(int i = 0; j != m; i++ ){
-        
-         a = rand() % 20;
-         b = rand() % 20;   
-         tiv = a*a + b*b;
-        
-	 if(tiv % 5 == 0){
-        
-	     arr[j]= tiv;
-             cout <<a << '*'<< a << '+' << b << '*' << b <<  " = " << arr[j] << endl;
-             j++;
-         }
-     }
-     return 0;
- }
+#include <math.h>
 
+using namespace std;
+int main () {
+int size;
+cout << " Enter size: ";
+cin >> size;
+int *arr = new int [size];
+
+for (int i = 0; i < size; i++) {
+        arr[i] = 5 * pow(i + 1, 2);
+        cout << 2 * (i + 1) << "*" <<2 * (i + 1)  << " + " << (i + 1) << "*"  << (i + 1)<< " = " << arr[i] << endl;
+    }
+
+return 0;    
+}
