@@ -4,42 +4,34 @@
 
 using namespace std;
 
-void indMinAndMaxElementsOfArray ( int *ptr, int *min, int *max, int arr[], int size) {
+void FindMinAndMaxElementsOfArray ( int arr[], int size) {
+	int *min, * max, *ptr = arr;
+    min = &arr[size - 1];
+    max = &arr[0];
     
-    for (; ptr <= (arr + size - 1); *(ptr ++) ){
-        
-        if ( *max < *(ptr)){
-                          
-            *max = *(ptr);
-        }
-             
-	if (*min > *(ptr)){
-                
-            *min = *(ptr);
-        } 
-    } 
-    cout << " min = " << *min << "  max = " << *max << endl;
+ for (; ptr <= (arr + size - 1); *(ptr ++) ){
+        	if ( *max < *(ptr)){
+            	*max = *(ptr);
+		}
+		if (*min > *(ptr)){
+        		*min = *(ptr);
+        	} 
+    	} 
+    	cout << " min = " << *min << "  max = " << *max << endl;
 }
  
 int main() {
-    
-    srand(time(0));
-    const int size = 9;
-    int arr[size], temp;
-    
-    for(int i = 0; i < size; i++) {
-        
-	arr[i] = rand() % 10 + 1;
+srand(time(0));
+int size;
+cout << " Array size: ";
+cin >> size;
+int *arr = new int [size];
+for(int i = 0; i < size; i++) {
+	arr[i] = rand() % 20 + 1;
         cout << arr[i] << "  ";
-    }
-    
-    cout << endl;
-    
-    int *min, * max, *ptr = arr;
-    min = &arr[4];
-    max = &arr[0];
-    
-    indMinAndMaxElementsOfArray (ptr, min, max, arr, size);
+}
+cout << endl;
+   FindMinAndMaxElementsOfArray (arr, size);
    
     return 0;
 }
