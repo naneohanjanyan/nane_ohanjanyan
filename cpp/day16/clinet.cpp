@@ -4,62 +4,66 @@
 #include <math.h>
 using namespace std;
 
-int hotelNum(int  temp); 
-
+int hotelNum(); 
 struct data {
+	int index;
 	string  country;
 	string  city;
 	string  address;
 	string  name;
 	int star;
-	int singlRoom;
+	int singleRoom;
 	int price1;
 	int twinRoom;
 	int price2;
-	int triplRoom;
+	int tripleRoom;
 	int price3;
 	string spa;
 	string fitnes;
 };
 
+void print (data info);
+
 int main () {
 fstream file;
-file.open("hotel2.txt");
-int  d = 0;
-d = hotelNum();
-struct data info[d];
-string str = "", info_string[13];
+file.open("hotel.txt");
+int  row;
+row = hotelNum();
+struct data info[row];
+string str = "", info_string[14];
 int i = 0, j = 0;
 while(!file.eof()){
 	file >> str;
 	info_string[i] = str;
 	if( i == 12) {
-		info[j].country = info_string[0].substr(0, info_string[0].size()-1);
-		info[j].city = info_string[1].substr(0, info_string[1].size()-1);
-		info[j].address = info_string[2].substr(0, info_string[1].size()-1);
-		info[j].name = info_string[3].substr(0, info_string[3].size()-1);
-		info[j].star = stoi(info_string[4].substr(0, info_string[4].size()-1));
-		info[j].singlRoom = stoi(info_string[5].substr(0, info_string[5].size()-1));
-		info[j].price1 = stoi(info_string[6].substr(0, info_string[6].size()-1));
-		info[j].twinRoom = stoi(info_string[7].substr(0, info_string[7].size()-1));
-		info[j].price2 = stoi(info_string[8].substr(0, info_string[8].size()-1));
-		info[j].triplRoom = stoi(info_string[9].substr(0, info_string[9].size()-1));
-		info[j].price3 = stoi(info_string[10].substr(0, info_string[10].size()-1));
-		info[j].spa = info_string[11].substr(0, info_string[11].size()-1);
-		info[j].fitnes  = info_string[12].substr(0, info_string[12].size()-1);
+		info[j].country = info_string[1].substr(0, info_string[1].size()-1);
+		info[j].city = info_string[2].substr(0, info_string[2].size()-1);
+		info[j].address = info_string[3].substr(0, info_string[3].size()-1);
+		info[j].name = info_string[4].substr(0, info_string[4].size()-1);
+		info[j].star = stoi(info_string[5].substr(0, info_string[5].size()-1));
+		info[j].singleRoom = stoi(info_string[6].substr(0, info_string[6].size()-1));
+		info[j].price1 = stoi(info_string[7].substr(0, info_string[7].size()-1));
+		info[j].twinRoom = stoi(info_string[8].substr(0, info_string[8].size()-1));
+		info[j].price2 = stoi(info_string[9].substr(0, info_string[9].size()-1));
+		info[j].tripleRoom = stoi(info_string[10].substr(0, info_string[10].size()-1));
+		info[j].price3 = stoi(info_string[11].substr(0, info_string[11].size()-1));
+		info[j].spa = info_string[12].substr(0, info_string[12].size()-1);
+		info[j].fitnes  = info_string[13];
+		info[j].index = stoi(info_string[0].substr(0, info_string[0].size()-1));
+
 		j++;
 		i = -1;
 	}
 	i++;
 }
-
+//cout << info[1].star;
 cout << "=================================================";
 cout << "\n\t\tHotel  Search Programm\n";
 cout << "=================================================";
 cout << "\n\n";
 cout << "\t\tSearch Hotel Filter\n";
 cout << "\t\t=================\n";
-cout << "0 - Search | 1 - country | 2 - city | 3 - address | 4 - name | 5 - star  | 6 - singlRoom  | 7 - twinRoom | 8 - triplRoom | 9 - price min | 10 - price max ";
+cout << "0 - Search | 1 - country | 2 - city | 3 - address | 4 - name | 5 - star  | 6 - singleRoom  | 7 - twinRoom | 8 - tripleRoom | 9 - price min | 10 - price max ";
 cout << "\n\n";
 bool check = true;
 bool temp[10] = {false};
@@ -68,16 +72,16 @@ string city;
 string address;
 string name;
 int   star;
-int   singlRoom;
+int   singleRoom;
 int   twinRoom;
-int   triplRoom;
+int   tripleRoom;
 int   minPrice;
 int   maxPrice;	
 while(check) {
-	cout << "Prameters Input: ";
-	int i;
-	cin >> i;
-	switch (i) {
+	cout << "Enter search mode: ";
+	int mode;
+	cin >> mode;
+	switch (mode) {
 		case 0:
 		check = false;
 		break;
@@ -137,50 +141,69 @@ while(check) {
 	}
 }
 
-for (int k = 0; k < d; k++) {
+for (int k = 0; k < row; k++) {
 	if( temp[0] && country != info[k].country ) continue;
 	if(temp[1] && city != info[k].city) continue;
 	if(temp[2] && address != info[k].address) continue;
 	if(temp[3] && (info[k].name != name)) continue;
 	if(temp[4] && info[k].star != star) continue;
-	if(temp[5] && info[k].singlRoom < 0) continue;
+	if(temp[5] && info[k].singleRoom < 0) continue;
 	if(temp[6] && info[k].twinRoom  < 0) continue;
-	if(temp[7] && info[k].triplRoom  < 0) continue;
+	if(temp[7] && info[k].tripleRoom  < 0) continue;
 	if(temp[8] && temp[5] && info[k].price1 >  minPrice) continue;
 	if(temp[8] && temp[5] && info[k].price1 <  maxPrice) continue;
 	if(temp[8] && temp[6] && info[k].price2 >  minPrice) continue;
 	if(temp[8] && temp[6]  && info[k].price2 <  maxPrice) continue;
 	if(temp[8] && temp[7] && info[k].price3 >  minPrice) continue;
 	if(temp[8] && temp[7] && info[k].price3 <  maxPrice) continue;
-
-	cout << "Country:-----------------> " << info[k].country << endl;
-	cout << "City:-----------------> " << info[k].city << endl;
-	cout << "Address;--------------> " << info[k].address << endl; 
-	cout << "Name:-----------------> " << info[k].name << endl;
-	cout << "Star:---------------> " << info[k].star << endl;
-	cout << "Singl Room:-------> " << info[k].singlRoom << endl;
-	cout << "Price:---------------> " << info[k].price1 << endl;
-	cout << "Twin Room:-------> " << info[k].twinRoom << endl;
-	cout << "Price:---------------> " << info[k].price2 << endl;
-	cout << "Tripl Room:-------> " << info[k].triplRoom << endl;
-	cout << "Price:---------------> " << info[k].price3 << endl;
-	cout << "=================================" << endl;
+	print(info[k]);
 }
-    
-/*    int arr = int new* arr[];
-    int dd1,mm2,yy3;	
-  */  
+
+cout << " For booking to room enter hotel index: ";
+int hotelindex;
+cin >> hotelindex;
+cout << " Enter which room you want to book( singlei - 1, twin - 2, triple - 3): ";
+int room_type;
+cin >> room_type;
+
+if(room_type == 1) {
+	cout << " Room booked \n";
+	info[hotelindex].singleRoom --;
+} else if (room_type == 2) {
+	cout << " Room booked \n";
+	info[hotelindex].twinRoom --;
+} else if (room_type == 3) {
+	cout << " Room booked \n";
+	info[hotelindex].tripleRoom --;
+}
+
 return 0;  
 
 }
+
 int hotelNum() {  
 	int temp = 0;
 	string str;
 	ifstream f;
-	f.open("hotel2.txt");
+	f.open("hotel.txt");
 	while(getline(f, str)){
 		temp++;
 	}
 f.close();
 return temp;
+}
+
+void print(data info) {
+	cout << "Country:-----------------> " << info.country << endl;
+	cout << "City:-----------------> " << info.city << endl;
+	cout << "Address;--------------> " << info.address << endl; 
+	cout << "Name:-----------------> " << info.name << endl;
+	cout << "Star:---------------> " << info.star << endl;
+	cout << "Singl Room:-------> " << info.singleRoom << endl;
+	cout << "Price:---------------> " << info.price1 << endl;
+	cout << "Twin Room:-------> " << info.twinRoom << endl;
+	cout << "Price:---------------> " << info.price2 << endl;
+	cout << "Tripl Room:-------> " << info.tripleRoom << endl;
+	cout << "Price:---------------> " << info.price3 << endl;
+	cout << "=================================" << endl;
 }
