@@ -25,17 +25,27 @@ struct data {
 void print (data info);
 
 int main () {
-fstream file;
+int  row = 0;
+string str1 = "";
+fstream f;
+f.open("hotel.txt");
+while(getline(f, str1)){
+	row++;
+}
+
+f.close();
+
+ifstream file;
 file.open("hotel.txt");
-int  row;
-row = hotelNum();
+
 struct data info[row];
-string str = "", info_string[14];
+string str = "", info_string[row];
 int i = 0, j = 0;
 while(!file.eof()){
 	file >> str;
 	info_string[i] = str;
-	if( i == 12) {
+	if( i == 13) {
+		info[j].index = stoi(info_string[0].substr(0, info_string[0].size()-1));
 		info[j].country = info_string[1].substr(0, info_string[1].size()-1);
 		info[j].city = info_string[2].substr(0, info_string[2].size()-1);
 		info[j].address = info_string[3].substr(0, info_string[3].size()-1);
@@ -49,14 +59,12 @@ while(!file.eof()){
 		info[j].price3 = stoi(info_string[11].substr(0, info_string[11].size()-1));
 		info[j].spa = info_string[12].substr(0, info_string[12].size()-1);
 		info[j].fitnes  = info_string[13];
-		info[j].index = stoi(info_string[0].substr(0, info_string[0].size()-1));
-
 		j++;
 		i = -1;
 	}
 	i++;
 }
-//cout << info[1].star;
+
 cout << "=================================================";
 cout << "\n\t\tHotel  Search Programm\n";
 cout << "=================================================";
@@ -65,18 +73,12 @@ cout << "\t\tSearch Hotel Filter\n";
 cout << "\t\t=================\n";
 cout << "0 - Search | 1 - country | 2 - city | 3 - address | 4 - name | 5 - star  | 6 - singleRoom  | 7 - twinRoom | 8 - tripleRoom | 9 - price min | 10 - price max ";
 cout << "\n\n";
+
 bool check = true;
 bool temp[10] = {false};
-string  country;
-string city;
-string address;
-string name;
-int   star;
-int   singleRoom;
-int   twinRoom;
-int   tripleRoom;
-int   minPrice;
-int   maxPrice;	
+string  country;string city;string address;string name;
+int   star;int   singleRoom;int   twinRoom;int   tripleRoom;int   minPrice;int   maxPrice;	
+/*
 while(check) {
 	cout << "Enter search mode: ";
 	int mode;
@@ -131,6 +133,7 @@ while(check) {
 		case 9:
 		cout << "Input MinPrice: ";
 		cin  >> minPrice;
+		temp[8] = true;
 		break;
 
 		case 10:
@@ -140,8 +143,9 @@ while(check) {
 		break;
 	}
 }
+*/
 
-for (int k = 0; k < row; k++) {
+/*for (int k = 0; k < row; k++) {
 	if( temp[0] && country != info[k].country ) continue;
 	if(temp[1] && city != info[k].city) continue;
 	if(temp[2] && address != info[k].address) continue;
@@ -151,21 +155,21 @@ for (int k = 0; k < row; k++) {
 	if(temp[6] && info[k].twinRoom  < 0) continue;
 	if(temp[7] && info[k].tripleRoom  < 0) continue;
 	if(temp[8] && temp[5] && info[k].price1 >  minPrice) continue;
-	if(temp[8] && temp[5] && info[k].price1 <  maxPrice) continue;
+	if(temp[9] && temp[5] && info[k].price1 <  maxPrice) continue;
 	if(temp[8] && temp[6] && info[k].price2 >  minPrice) continue;
-	if(temp[8] && temp[6]  && info[k].price2 <  maxPrice) continue;
+	if(temp[9] && temp[6]  && info[k].price2 <  maxPrice) continue;
 	if(temp[8] && temp[7] && info[k].price3 >  minPrice) continue;
-	if(temp[8] && temp[7] && info[k].price3 <  maxPrice) continue;
+	if(temp[9] && temp[7] && info[k].price3 <  maxPrice) continue;
 	print(info[k]);
 }
-
+*/
 cout << " For booking to room enter hotel index: ";
 int hotelindex;
 cin >> hotelindex;
 cout << " Enter which room you want to book( singlei - 1, twin - 2, triple - 3): ";
 int room_type;
 cin >> room_type;
-
+/*
 if(room_type == 1) {
 	cout << " Room booked \n";
 	info[hotelindex].singleRoom --;
@@ -176,15 +180,15 @@ if(room_type == 1) {
 	cout << " Room booked \n";
 	info[hotelindex].tripleRoom --;
 }
-
+*/
 return 0;  
 
 }
 
-int hotelNum() {  
+/*int hotelNum() {  
 	int temp = 0;
-	string str;
-	ifstream f;
+	string str = "";
+	fstream f;
 	f.open("hotel.txt");
 	while(getline(f, str)){
 		temp++;
@@ -192,7 +196,7 @@ int hotelNum() {
 f.close();
 return temp;
 }
-
+*/
 void print(data info) {
 	cout << "Country:-----------------> " << info.country << endl;
 	cout << "City:-----------------> " << info.city << endl;
