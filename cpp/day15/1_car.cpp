@@ -28,7 +28,7 @@ file1.close();
 struct information info[row];
 ifstream file;
 file.open("car_info.txt");
-string str = "", info_string[row];
+string str = "", info_string[7];
 int k = 0, j = 0;
 // add file in struct
 while(!file.eof()){
