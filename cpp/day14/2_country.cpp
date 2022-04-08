@@ -9,7 +9,8 @@ enum PhoneCodes {
 	Georgia = 995,
 	France = 33,
 	China = 86,
-	Belarus = 375
+	Belarus = 375,
+	Russian = 7
 };
 
 struct information{
@@ -22,12 +23,22 @@ struct information{
 	int phonecode;
 };
 
+void print(information info);
 int main(int argc, char *argv[]) {
 
 PhoneCodes PhoneCode;
-int arr_PhoneCode[5] = {Armenia, Georgia, France, China, Belarus};
+int arr_PhoneCode[6] = {Armenia, Georgia, France, China, Belarus, Russian};
 
-struct information info[7];
+fstream f;
+f.open("countries.txt");
+int  row = 0 ;
+string str1 = "";
+while(getline(f, str1)){
+	row++;
+}
+
+f.close();
+struct information info[row];
 ifstream file;
 file.open("countries.txt");
 string str = "", info_string[6];
@@ -60,39 +71,22 @@ if (arg == "search") {
 	cout << "Input name serach mode " << input << ":";
 	getline(cin, name);
 	if (input == "capital") {
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < row; i++) {
 			if (info[i].capital == name) {
-				cout << " Country: " << info[i].countryName << endl;
-				cout << " Capital: " << info[i].capital << endl;
-				cout << " Domain: " << info[i].domain << endl;
-				cout << " GDP: " << info[i].GDP << endl;
-				cout << " Population: " << info[i].population << endl;
-				cout << " Area: " << info[i].area << endl;
-				cout << " Phone Code: " << info[i].phonecode << endl;
+				print (info[i]);
 			}
 		}
 	} else if (input == "countryName") {
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < row; i++) {
 			if (info[i].countryName == name) {
-				cout << " Country: " << info[i].countryName << endl;
-				cout << " Capital: " << info[i].capital << endl;
-				cout << " Domain: " << info[i].domain << endl;
-				cout << " GDP: " << info[i].GDP << endl;
-				cout << " Population: " << info[i].population << endl;
-				cout << " Area: " << info[i].area << endl;
-				cout << " Phone Code: " << info[i].phonecode << endl;
+				print (info[i]);
+
 			}
 		}
 	} else if (input == "domain") {
 		for (int i = 0; i < 6; i++) {
 			if (info[i].domain == name) {
-				cout << " Country: " << info[i].countryName << endl;
-				cout << " Capital: " << info[i].capital << endl;
-				cout << " Domain: " << info[i].domain << endl;
-				cout << " GDP: " << info[i].GDP << endl;
-				cout << " Population: " << info[i].population << endl;
-				cout << " Area: " << info[i].area << endl;
-				cout << " Phone Code: " << info[i].phonecode << endl;
+				print(info[i]);
 			}
 		}
 	} else {
@@ -108,7 +102,7 @@ if(arg == "compare") {
 	cout << " Input second country: ";
 	getline(cin,country2);
 
-	for (int  i = 0; i < 5;i++) {
+	for (int  i = 0; i < row;i++) {
 		if(country1 == info[i].countryName) {
 			countryName1.countryName = info[i].countryName;
 			countryName1.capital = info[i].capital;
@@ -128,21 +122,45 @@ if(arg == "compare") {
 			countryName2.phonecode = info[i].phonecode;
 		}
 	}
-	char simbol;
-	if(countryName1.population < countryName2.population || countryName1.area < countryName2.area || countryName1.GDP < countryName2.GDP) {
-		simbol = '<';
- 	} else if (countryName1.population > countryName2.population || countryName1.area > countryName2.area || countryName1.GDP > countryName2.GDP) {
-		simbol = '>';
+
+	char simbol[3];
+	if(countryName1.population < countryName2.population) {
+		 simbol[0] = '<';
+	} else if (countryName1.population > countryName2.population) {
+		 simbol[0] = '>';
+	
+	} else {
+		simbol[0] = '=';
+	}
+	if(countryName1.area > countryName2.area) {
+		simbol[1] = '>';
+	} else if( countryName1.area < countryName2.area) {
+		simbol[1] = '<';
+	}
+	if( countryName1.GDP < countryName2.GDP) {
+		simbol[2] = '<';
+	} else if( countryName1.GDP > countryName2.GDP) {
+		simbol[2] = '>';
  	} else {
-		simbol = '=';
- 	}
+		simbol[1] = '=';
+	}
 	cout << "============================================== \n\t\t| " << country1 << " | " << country2 << "\n==============================================\n";
 	cout << " Capital\t| " << countryName1.capital <<  " | " << countryName2.capital << endl;
 	cout << " Domain\t\t| " <<  countryName1.domain << " | " << countryName2.domain << endl;
-	cout << " Population\t| " << countryName1.population << "  " << simbol << "  " << countryName2.population << endl;
-	cout << " Area\t\t| " << countryName1.area << "  " << simbol << "  " << countryName2.area << endl;
-	cout << " GDP\t\t| " << countryName1.GDP << "  " << simbol << "  " <<  countryName2.GDP << endl;
+	cout << " Population\t| " << countryName1.population << "  " << simbol[0] << "  " << countryName2.population << endl;
+	cout << " Area\t\t| " << countryName1.area << "  " << simbol[1] << "  " << countryName2.area << endl;
+	cout << " GDP\t\t| " << countryName1.GDP << "  " << simbol[2] << "  " <<  countryName2.GDP << endl;
 	cout << " Phone code\t| +" << countryName1.phonecode << " | +" << countryName2.phonecode << endl; 
 }
 return 0;
 }
+
+void print (information info) {
+	cout << " Country: " << info.countryName << endl;
+	cout << " Capital: " << info.capital << endl;
+	cout << " Domain: " << info.domain << endl;
+	cout << " GDP: " << info.GDP << endl;
+	cout << " Population: " << info.population << endl;
+	cout << " Area: " << info.area << endl;
+	cout << " Phone Code: " << info.phonecode << endl;
+}	
