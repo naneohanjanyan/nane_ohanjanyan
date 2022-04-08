@@ -3,8 +3,7 @@
 #include <string>
 #include <math.h>
 using namespace std;
-
-int hotelNum(); 
+ 
 struct data {
 	int index;
 	string  country;
@@ -186,18 +185,6 @@ if (room_type == 1 && info[hotelindex].singleRoom != 0) {
 
 return 0;  
 
-}
-
-int hotelNum() {  
-	int temp = 0;
-	string str = "";
-	fstream f;
-	f.open("hotel.txt");
-	while(getline(f, str)){
-		temp++;
-	}
-f.close();
-return temp;
 }
 
 void print(data info) {
