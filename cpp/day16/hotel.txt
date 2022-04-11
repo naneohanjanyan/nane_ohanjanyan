@@ -1,3 +1,0 @@
-1 Russian, Moscow, VozdvizhenkaStreet10, Plaza, 4, 50, 50, 100, 200, 75, 150, yes, yes
-2 USA, Washington, Bewerly, Avrora, 5, 40, 100, 50, 200, 100, 150, yes, yes
-3 Armenia, Erevan, Mashtoc13, Ararat, 3, 50, 200, 100, 100, 150, 150, no, no
