@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include "human.h"
 
 using namespace std;
 
