@@ -50,7 +50,7 @@ class Human {
 		bool Drink(string drink);
 };
 
-class Programmer : HomoSapience{
+class HomoSapience : Human {
 	enum Religion {
                  Christianity,
                  Islam,
