@@ -65,11 +65,9 @@ class HomoSapience : Human {
                  british
          };
 	private:
-		bool Logical_Thinking;
-		bool Attentiveness;
-		bool Responsibility;
- 		bool Imagination;
-                void WriteCode();
+		Religion religion;
+		Nationality nationality;
+		void Think();
 };      
 
 class Programmer : HomoSapience{
