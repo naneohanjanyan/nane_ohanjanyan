@@ -65,8 +65,15 @@ class HomoSapience : Human {
                  british
          };
 	private:
+		string name;
+		string surname;
 		Religion religion;
 		Nationality nationality;
+		string Address() {
+			string address;
+			getline(cin, address);
+			return address;
+		}			
 		void Think();
 };      
 
