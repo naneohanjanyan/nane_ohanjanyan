@@ -30,11 +30,9 @@ for(int i = _degree2; i >= 0; --i) {
 }
 
 Polynomial call(_degree1, _degree2, arr1, arr2);
-		if(Operator == 1) call.Add();
-	if(Operator == 2 ) call.Subtract();
-}
+if(Operator == 1) call.Add();
+if(Operator == 2 ) call.Subtract();
 if(Operator == 3 )  call.MultiplyByNumber();
-
 cout << endl;
  return 0;
 }
