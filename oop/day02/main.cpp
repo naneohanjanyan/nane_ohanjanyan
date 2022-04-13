@@ -30,7 +30,6 @@ for(int i = _degree2; i >= 0; --i) {
 }
 
 Polynomial call(_degree1, _degree2, arr1, arr2);
-<<<<<<< HEAD
 if(Operator == 1) {
 	for(int i = _degree1; i >= 0; i--) {
 		cout << arr1[i] << "x^" << i << " + ";
@@ -55,11 +54,6 @@ if(Operator == 2 ) {
 if(Operator == 3 ) {
 	call.MultiplyByNumber();
 }
-=======
-if(Operator == 1) call.Add();
-if(Operator == 2 ) call.Subtract();
-if(Operator == 3 )  call.MultiplyByNumber();
->>>>>>> b070b72abb21dea9fd409570eac6b8567cb0b61a
 cout << endl;
  return 0;
 }
