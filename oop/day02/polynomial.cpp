@@ -1,5 +1,5 @@
 #include <iostream>
-#include "polyinomial.h"
+#include "polynomial.h"
 
 using namespace std;
 void Polynomial::Add() {
@@ -61,10 +61,15 @@ void Polynomial ::Subtract() {
 
 void Polynomial::MultiplyByNumber() {
 	int number;
-	cin >> number;
+	cin >> number; 
+	cout << number << "*( ";
+	for(int i = _degree1; i >= 0; i--) {
+		cout << arr1[i] << "x^" << i << " + ";
+        } 
+	cout << ") = ";
 	for (int i = 0; i <= _degree1; i++) {
 		result[i] = number * arr1[i];
-		cout << arr1[i] << "x^" << i << " * " << number;
+		cout << result[i] << "x^" << i << " + ";
 	}
 }
 
