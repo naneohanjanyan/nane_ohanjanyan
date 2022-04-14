@@ -33,11 +33,11 @@ Polynomial::Polynomial(Polynomial &other) {
 	}
 }
 // destructor
-Polynomial::~Polynomial() {
+/*Polynomial::~Polynomial() {
 	delete[] _coeff;
 	_arrSize = 0;
 	_coeff = nullptr;
-}
+}*/
  Polynomial Polynomial::Add(Polynomial &other) {
 	int sizeOfArr = (_arrSize >= other._arrSize) ? _arrSize : other._arrSize;
 	Polynomial answer(sizeOfArr - 1);

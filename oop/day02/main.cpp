@@ -16,6 +16,7 @@ for(int i = degree1; i >= 0; --i) {
 	cin >> arr1[i];
 }
 Polynomial p(arr1, degree1 + 1);
+cout << " Polynomial 1 = ";
 p.print();
 
 cout << " degree2 = ";
@@ -27,11 +28,32 @@ for(int i = degree2; i >= 0; --i) {
 	cin >> arr2[i];
 }
 Polynomial q(arr2, degree2 + 1);
+cout << " Polynomial 2 = ";
 q.print();
 
-cout << " p + q = " ;
-Polynomial answer = p.Add(q);
-//answer.print();
+cout << " poly1 + poly2 = " ;
+Polynomial answer;
+answer = p.Add(q);
+answer.print();
+
+cout << " poly1 - poly2 = " ;
+answer = p.Subtract(q);
+answer.print();
+
+cout << " poly1 * poly2 = " ;
+answer = p.Multiply(q);
+answer.print();
+/*
+cout << " poly1 + poly2 = " ;
+answer = p.Add(q);
+answer.print();
+*/
+
+
+
+
+
+
 return 0;
 }
 
