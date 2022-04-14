@@ -3,58 +3,35 @@
 
 using namespace std;
 
-int newPolynomial(int max_degree);
 
 int main() {
 
-int Operator;
-cout << "1.Add  2.Subtract  3.Multiply By Number (1/2/3)\n";
-cin >> Operator;
-int _degree1, _degree2;
+int degree1, degree2;
 cout << " degree1 = ";
-cin >> _degree1;
-cout << " degree2 = ";
-cin >> _degree2;
-int *arr1 = new int [_degree1 + 1];
+cin >> degree1;
+int *arr1 = new int [degree1 + 1];
 cout << " Coefficents: \n";
-for(int i = _degree1; i >= 0; --i) {
-	cout << "arr1 [" << i << "] = ";
+for(int i = degree1; i >= 0; --i) {
+	cout << " x^" << i << ": ";
 	cin >> arr1[i];
 }
+Polynomial p(arr1, degree1 + 1);
+p.print();
 
-int *arr2 = new int [_degree2 + 1];
+cout << " degree2 = ";
+cin >> degree2;
+int *arr2 = new int [degree2 + 1];
 cout << " Coefficents: \n";
-for(int i = _degree2; i >= 0; --i) {
-	cout << "arr2 [" << i << "] = ";
+for(int i = degree2; i >= 0; --i) {
+	cout << " x^ " << i << ": ";
 	cin >> arr2[i];
 }
+Polynomial q(arr2, degree2 + 1);
+q.print();
 
-Polynomial call(_degree1, _degree2, arr1, arr2);
-if(Operator == 1) {
-	for(int i = _degree1; i >= 0; i--) {
-		cout << arr1[i] << "x^" << i << " + ";
-	}
-	for(int i = _degree2; i >= 0; i--) {
-		cout << arr2[i] << "x^" << i << " + ";
-	}
-	cout << " = ";
-	call.Add();
-}
-if(Operator == 2 ) {
-	for(int i = _degree1; i >= 0; i--) {
-		cout << arr1[i] << "x^" << i << " + ";
-	}
-	cout << " - (";
-	for(int i = _degree2; i >= 0; i--) {
-		cout << arr2[i] << "x^" << i << " + ";
-	}
-	cout << ") = ";
-	call.Subtract();
-}
-if(Operator == 3 ) {
-	call.MultiplyByNumber();
-}
-cout << endl;
- return 0;
+cout << " p + q = " ;
+Polynomial answer = p.Add(q);
+//answer.print();
+return 0;
 }
 

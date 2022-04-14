@@ -1,4 +1,3 @@
-using namespace std;
 #ifndef POLYNOMIAL
 #define POLYNOMIAL
 
@@ -8,13 +7,14 @@ class Polynomial {
 		int _arrSize;
 	public:
 		Polynomial();
+		Polynomial(int degree);
 		Polynomial(int *coefficientArr, int coefficientCount);
-		Polynomial(Polyomial& other);
+		Polynomial(Polynomial& other);
 		~Polynomial();
-		Polynomial MultiplyByNumber(Polyomial &other);
-		Polynomial Add(Polyomial &other);
-		Polynomial Subtract(Polyomial &other);
-		Polynomial Multiply(Polyomial &other);
+	//	Polynomial MultiplyByNumber(Polynomial &other);
+		Polynomial Add(Polynomial& other);
+		Polynomial Subtract(Polynomial& other);
+		Polynomial Multiply(Polynomial& other);
 		int degree();
 		void print();
 };
