@@ -11,7 +11,7 @@ class Polynomial {
 		Polynomial(int *coefficientArr, int coefficientCount);
 		Polynomial(Polynomial& other);
 //		~Polynomial();
-	//	Polynomial MultiplyByNumber(Polynomial &other);
+		Polynomial MultiplyByNumber(int number);
 		Polynomial Add(Polynomial &other);
 		Polynomial Subtract(Polynomial &other);
 		Polynomial Multiply(Polynomial &other);

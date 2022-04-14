@@ -59,6 +59,13 @@ Polynomial::Polynomial(Polynomial &other) {
 	return answer;
 	
 }
+Polynomial Polynomial::MultiplyByNumber(int number) {
+	Polynomial answer(_arrSize);
+	for (int i = 0; i <= _arrSize; i++) {
+		answer._coeff[i] = number * (_coeff[i]);
+	}
+	return answer;
+}
 
 Polynomial Polynomial::Subtract(Polynomial &other) {
 	int sizeOfArr = (_arrSize >= other._arrSize) ? _arrSize : other._arrSize;
@@ -79,6 +86,7 @@ Polynomial Polynomial::Subtract(Polynomial &other) {
 		} 
 	}
 	return answer;
+	//return this->Add(other.MultiplyByNumber(-1));
 	
 }
 Polynomial Polynomial:: Multiply(Polynomial &other) {
@@ -99,18 +107,4 @@ void Polynomial::print(){
 	}
 	cout << _coeff[0] << "\n";
 }
-/*
-void Polynomial::MultiplyByNumber() {
-	int number;
-	cin >> number; 
-	cout << number << "*( ";
-	for(int i = _degree1; i >= 0; i--) {
-		cout << arr1[i] << "x^" << i << " + ";
-        } 
-	cout << ") = ";
-	for (int i = 0; i <= _degree1; i++) {
-		result[i] = number * arr1[i];
-		cout << result[i] << "x^" << i << " + ";
-	}
-}
-*/
+

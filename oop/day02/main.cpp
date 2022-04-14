@@ -6,6 +6,10 @@ using namespace std;
 
 int main() {
 
+cout << " Number to multiply: ";
+int number;
+cin >> number;
+
 int degree1, degree2;
 cout << " degree1 = ";
 cin >> degree1;
@@ -43,15 +47,10 @@ answer.print();
 cout << " poly1 * poly2 = " ;
 answer = p.Multiply(q);
 answer.print();
-/*
-cout << " poly1 + poly2 = " ;
-answer = p.Add(q);
+
+cout << " poly1 * " << number << " = " ;
+answer = p.MultiplyByNumber(number);
 answer.print();
-*/
-
-
-
-
 
 
 return 0;
