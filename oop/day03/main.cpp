@@ -31,6 +31,7 @@ for(int i = degree2; i >= 0; --i) {
 	cout << " x^ " << i << ": ";
 	cin >> arr2[i];
 }
+Polynomial temp;
 Polynomial q(arr2, degree2 + 1);
 cout << " Polynomial 2 = ";
 q.print();
@@ -47,6 +48,21 @@ answer.print();
 cout << " poly1 * poly2 = " ;
 answer = p * q;
 answer.print();
+
+temp = p;
+cout << " poly1 += poly 2 = ";
+p += q;
+p.print();
+
+p = temp;
+cout << " poly1 -= poly 2 = ";
+p -= q;
+p.print();
+
+p = temp;
+cout << " poly1 *= poly 2 = ";
+p *= q;
+p.print();
 
 
 return 0;

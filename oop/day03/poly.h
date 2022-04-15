@@ -10,9 +10,12 @@ class Polynomial {
 		Polynomial(int degree);
 		Polynomial(int *coefficientArr, int coefficientCount);
 		Polynomial(Polynomial& other);
-		Polynomial operator+( const Polynomial &other ) const; 
-		Polynomial operator-( const Polynomial &other ) const; 
-		Polynomial operator*( const Polynomial &other ) const; 
+		Polynomial operator+( const Polynomial &other) const; 
+		Polynomial operator-( const Polynomial &other) const; 
+		Polynomial operator*( const Polynomial &other) const; 
+		Polynomial &operator+=( const Polynomial &other);
+		Polynomial &operator-=( const Polynomial &other);
+		Polynomial &operator*=( const Polynomial &other);
 		int degree();
 		void print();
 };

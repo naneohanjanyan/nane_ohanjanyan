@@ -87,7 +87,21 @@ Polynomial Polynomial::operator*( const Polynomial &other ) const {
 	return answer;
 }
 
+Polynomial &Polynomial::operator+=( const Polynomial &other ) {
+	*this = *this + other;
+	return *this;
+} 
 
+Polynomial &Polynomial::operator-=( const Polynomial &other){
+	*this = *this - other;
+	return *this;
+}
+
+Polynomial &Polynomial::operator*=( const Polynomial &other ) {
+	*this = *this * other;
+	return *this;
+}
+ 
 void Polynomial::print(){
 	for(int i = _arrSize - 1; i >= 1; i--) {
 		if(_coeff[i] !=0) {
