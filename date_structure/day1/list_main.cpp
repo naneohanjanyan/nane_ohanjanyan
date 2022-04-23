@@ -8,9 +8,7 @@ int main()
 {
     List obj;
     List *head = NULL;
-    List *second = NULL;
     head = new List();
-    second = new List();
 
     head->_value = 1;
     head->_next = NULL;
@@ -18,34 +16,29 @@ int main()
     cout << "Add at the front:  ";
     obj.AddAtTheFront(&head, 0);
     obj.print(head);
-    cout << endl;
-
-    cout << "Add at the end:  ";
+   
+    cout << "\nAdd at the end:  ";
     obj.AddAtTheEnd(&head, 3);
     obj.print(head);
-    cout << endl;
-
-    cout << "Add at the position:  ";
+   
+    cout << "\nAdd at the position:  ";
     obj.AddAt(&head, -7, 1);
     obj.print(head);
-    cout << endl;
-    
-    cout << "List size: " << obj.listSize(head) << "\n";
-   // cout << "Get element:  " << obj.GetElement(head, 2);
-    
-    cout << "Remove at the front:  ";
+
+    cout << "\nList size: " << obj.listSize(head);
+    // cout << "Get element:  " << obj.GetElement(head, 2);
+
+    cout << "\nRemove at the front:  ";
     obj.RemoveTheFront(&head);
     obj.print(head);
-    cout << endl;
-
-    cout << "Remove element at the value:  ";
+    
+    cout << "\nRemove element at the value:  ";
     obj.RemoveElement(&head, 2);
     obj.print(head);
 
-    cout << "Remove at the position:  ";
+    cout << "\nRemove at the position:  ";
     obj.RemoveAt(&head, 3);
     obj.print(head);
     cout << endl;
     return 0;
-    
 }

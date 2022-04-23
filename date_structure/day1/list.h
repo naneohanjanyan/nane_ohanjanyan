@@ -6,9 +6,9 @@ class List
 public:
     int _value;
     List *_next;
-    /* List();
-     ~List();
-    List(L value);*/
+    List();
+    ~List();
+    //List(L value);
     //List GetElement(List*, int);
     void AddAtTheFront(List **, int);
     void AddAtTheEnd(List **, int);

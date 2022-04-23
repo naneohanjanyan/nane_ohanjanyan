@@ -5,8 +5,13 @@
 using namespace std;
 
 // template<class L>
-/**List:: List();
-List::~List();*/
+List:: List() {
+    _value = 0;
+    //*_next = 0;
+}
+List::~List(){
+    
+}
 /*List List::GetElement(List *temp, int position)
 {
     for (int i = 0; i < position - 1; i++)
