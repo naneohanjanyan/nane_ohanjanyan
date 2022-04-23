@@ -17,9 +17,9 @@ public:
     void RemoveAt(List **, int);
     void RemoveElement(List**, int);
     int listSize(List *);
-    /*L GetElement(int);
+    int getElement(List*, int); 
     void Add();
-    int Count();*/
+    int Count();
     void print(List *);
 };
 #endif

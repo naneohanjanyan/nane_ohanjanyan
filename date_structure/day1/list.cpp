@@ -10,16 +10,15 @@ List:: List() {
     //*_next = 0;
 }
 List::~List(){
-    
+
 }
-/*List List::GetElement(List *temp, int position)
-{
-    for (int i = 0; i < position - 1; i++)
-    {
-        temp = temp->_next;
-    }
-    return *temp;
-}*/
+int List::getElement(List* head, int index) {
+	List* curr = head;
+    	for(int i = 0; i < index - 1; ++i) {
+				curr = curr->_next;
+		}
+		return curr->_value;
+	}
 void List::AddAtTheFront(List **head, int newValue)
 {
     List *newNode = new List();

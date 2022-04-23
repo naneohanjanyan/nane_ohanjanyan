@@ -16,14 +16,17 @@ int main()
     cout << "Add at the front:  ";
     obj.AddAtTheFront(&head, 0);
     obj.print(head);
-   
+
     cout << "\nAdd at the end:  ";
     obj.AddAtTheEnd(&head, 3);
     obj.print(head);
-   
+
     cout << "\nAdd at the position:  ";
     obj.AddAt(&head, -7, 1);
     obj.print(head);
+
+    cout << "\nGet element:  " << obj.getElement(head, 3);
+    //obj.print(head);
 
     cout << "\nList size: " << obj.listSize(head);
     // cout << "Get element:  " << obj.GetElement(head, 2);
@@ -31,7 +34,7 @@ int main()
     cout << "\nRemove at the front:  ";
     obj.RemoveTheFront(&head);
     obj.print(head);
-    
+
     cout << "\nRemove element at the value:  ";
     obj.RemoveElement(&head, 2);
     obj.print(head);
