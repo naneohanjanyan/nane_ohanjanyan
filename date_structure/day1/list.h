@@ -1,25 +1,44 @@
 #ifndef LIST_H
 #define LIST_H
 
+#include <iostream>
+using namespace std;
+
+template <typename T>
 class List
 {
+private:
+  template <typename U>
+  class Node
+  {
+  public:
+    Node *pNext;
+    U data;
+
+    Node(U data = U(), Node *pNext = nullptr)
+    {
+      this->data = data;
+      this->pNext = pNext;
+    }
+  };
+  Node<T> *head;
+  Node<T> *tail;
+  int _size;
+
 public:
-    int _value;
-    List *_next;
-    List();
-    ~List();
-    //List(L value);
-    //List GetElement(List*, int);
-    void AddAtTheFront(List **, int);
-    void AddAtTheEnd(List **, int);
-    void AddAt(List **, int, int);
-    void RemoveTheFront(List **);
-    void RemoveAt(List **, int);
-    void RemoveElement(List**, int);
-    int listSize(List *);
-    int getElement(List*, int); 
-    void Add();
-    int Count();
-    void print(List *);
+  List();
+  ~List();
+  void addEnd(T);
+  void addAt(T, int);
+  void addFront(T);
+  void removeAll();
+  void removeFront();
+  void removeAt(int);
+  void removeEnd();
+  int GetSize() { return _size; }
+  T &operator[](const int );
+  T getElement(int);
+  //friend ostream &operator<<(ostream &out, const List<Type> &);
 };
+
 #endif

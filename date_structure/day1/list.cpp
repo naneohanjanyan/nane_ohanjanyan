@@ -1,129 +1,143 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
+#include <ostream>
 #include "list.h"
 using namespace std;
 
-// template<class L>
-List:: List() {
-    _value = 0;
-    //*_next = 0;
-}
-List::~List(){
-
-}
-int List::getElement(List* head, int index) {
-	List* curr = head;
-    	for(int i = 0; i < index - 1; ++i) {
-				curr = curr->_next;
-		}
-		return curr->_value;
-	}
-void List::AddAtTheFront(List **head, int newValue)
+template <typename T>
+List<T>::List()
 {
-    List *newNode = new List();
-    newNode->_value = newValue;
-    newNode->_next = *head;
-    *head = newNode;
+    head = nullptr;
+    _size = 0;
+}
+template <typename T>
+List<T>::~List()
+{
+    removeAll();
 }
 
-void List::AddAtTheEnd(List **head, int newValue)
+template <typename T>
+void List<T>::addEnd(T data)
 {
-    List *newNode = new List();
-    newNode->_value = newValue;
-    newNode->_next = NULL;
-    if (*head == NULL)
+    if (head == nullptr)
     {
-        *head = newNode;
-        return;
-    }
-    List *last = *head;
-    while (last->_next != NULL)
-    {
-        last = last->_next;
-    }
-    last->_next = newNode;
-}
-
-void List::AddAt(List **head, int newValue, int position)
-{
-    List *newNode = new List();
-    newNode->_value = newValue;
-    newNode->_next = NULL;
-    List *temp = *head;
-    for (int i = 0; i < position - 1; i++)
-    {
-        temp = temp->_next;
-    }
-    newNode->_next = temp->_next;
-    temp->_next = newNode;
-}
-
-void List::RemoveTheFront(List **head)
-{
-    List *temp = *head;
-    *head = (*head)->_next;
-    free(temp);
-}
-
-void List::RemoveAt(List **head, int position)
-{
-    List *temp1 = *head;
-    if (position == 1)
-    {
-        *head = temp1->_next;
-        free(temp1);
-        return;
-    }
-    for (int i = 0; i < position - 2; i++)
-    {
-        temp1 = temp1->_next;
-    }
-    List *temp2 = temp1->_next;
-    temp1->_next = temp2->_next;
-    free(temp2);
-}
-
-void List::RemoveElement(List** head, int value)
-{
-    List *temp = *head;
-    List *prev = NULL;
-    if (temp != NULL && temp->_value == value)
-    {
-        *head = temp->_next;
-        delete temp;
-        return;
+        head = new Node<T>(data);
+        tail = head;
     }
     else
     {
-        while (temp != NULL && temp->_value!= value)
+        Node<T> *current = tail;
+        current->pNext = new Node<T>(data);
+        tail = current->pNext;
+    }
+    _size++;
+}
+
+template <typename T>
+void List<T>::addFront(T data)
+{
+    head = new Node<T>(data, head);
+    _size++;
+}
+
+template <typename T>
+void List<T>::addAt(T data, int index)
+{
+    if (index == 0)
+    {
+        addFront(data);
+    }
+    else
+    {
+        Node<T> *previous = this->head;
+        for (int i = 0; i < index - 1; i++)
         {
-            prev = temp;
-            temp = temp->_next;
+            previous = previous->pNext;
         }
-        if (temp == NULL)
-            return;
-        prev->_next = temp->_next;
-        delete temp;
+        Node<T> *newNode = new Node<T>(data, previous->pNext);
+        previous->pNext = newNode;
+        _size++;
     }
 }
 
-int List::listSize(List *node)
+template <typename T>
+T &List<T>::operator[](const int index)
 {
+    Node<T> *current = this->head;
     int count = 0;
-    while (node != NULL)
+    while (current != nullptr)
     {
+        if (count == index)
+        {
+            return current->data;
+        }
+        current = current->pNext;
         count++;
-        node = node->_next;
     }
-    return count;
+    return head->data;
 }
 
-void List::print(List *node)
+template <typename T>
+void List<T>::removeFront()
 {
-    while (node != NULL)
+    Node<T> *courrent = head;
+    head = head->pNext;
+    delete courrent;
+    _size--;
+}
+
+template <typename T>
+void List<T>::removeAll()
+{
+    while (_size)
     {
-        cout << node->_value << "  ";
-        node = node->_next;
+        removeFront();
     }
+}
+
+template <typename T>
+void List<T>::removeAt(int index)
+{
+    if (index == 0)
+    {
+        removeFront();
+    }
+    else
+    {
+        Node<T> *cour1 = head;
+        for (int i = 0; i < (index - 1); i++)
+        {
+            cour1 = cour1->pNext;
+        }
+        Node<T> *cour2 = cour1->pNext;
+        cour1->pNext = cour2->pNext;
+        delete cour2;
+        _size--;
+    }
+}
+
+template <typename T>
+void List<T>::removeEnd()
+{
+    Node<T> *current = head;
+    for (int i = 0; i <= _size - 2; i++)
+    {
+        current = current->pNext;
+        if (i == _size - 3)
+        {
+            tail = current;
+        }
+    }
+    delete current->pNext;
+    current->pNext = nullptr;
+    _size--;
+}
+
+template <typename T>
+T List<T>::getElement(int index)
+{
+    Node<T> *curr = head;
+    for (int i = 0; i < index; ++i)
+    {
+        curr = curr->pNext;
+    }
+    return curr->data;
 }
