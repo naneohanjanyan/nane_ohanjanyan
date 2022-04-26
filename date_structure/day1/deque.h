@@ -11,9 +11,9 @@ private:
 
 public:
     bool isEmpty();
-    void popBack();
     void pushFront(T);
     void pushBack(T);
+    void popBack();
     T popFront();
     T peekFront();
     T peekBack();

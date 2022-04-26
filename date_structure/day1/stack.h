@@ -29,13 +29,13 @@ T Stack<T>::pop()
 template <typename T>
 T Stack<T>::peek()
 {
-    return _list[_list.GetSize() - 1];
+    return _list[_list.getSize() - 1];
 }
 
 template <typename T>
 bool Stack<T>::isEmpty()
 {
-    return _list.GetSize() == 0;
+    return _list.getSize() == 0;
 }
 
 template <typename T>

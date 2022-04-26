@@ -4,7 +4,7 @@ template<typename T>
 T Queue<T>::popFront()
 { 
     T return_value = _list[1];
-    _list.Remove_front();
+    _list.removeFront();
     return return_value;
 }
 
@@ -17,13 +17,13 @@ T  Queue<T>::peek()
 template<typename T>
 bool Queue<T>::isEmpty()
 {
-    return _list.GetSize() == 0;
+    return _list.getSize() == 0;
 }
 
 template<typename T>
 void Queue<T>::pushBack(T value)
 {
-    _list.Add(value);
+    _list.add(value);
 }
 
 template<typename T>
