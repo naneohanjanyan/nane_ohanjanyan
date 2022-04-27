@@ -35,7 +35,7 @@ public:
   void removeFront();
   void removeAt(int);
   void removeEnd();
-  int GetSize() { return _size; }
+  int getSize() { return _size; }
   T &operator[](const int );
   T getElement(int);
   //friend ostream &operator<<(ostream &out, const List<Type> &);
