@@ -4,32 +4,32 @@ template <typename T>
 T Deque<T>::popFront()
 {
     T return_value = _list[1];
-    _list.Remove_front();
+    _list.removeFront();
     return return_value;
 }
 
 template <typename T>
 void Deque<T>::popBack()
 {
-    _list.Remove_back();
+    _list.removeBack();
 }
 
 template <typename T>
 bool Deque<T>::isEmpty()
 {
-    return _list.GetSize() == 0;
+    return _list.getSize() == 0;
 }
 
 template <typename T>
 void Deque<T>::pushFront(T value)
 {
-    _list.Add_front(value);
+    _list.addFront(value);
 }
 
 template <typename T>
 void Deque<T>::pushBack(T value)
 {
-    _list.Add(value);
+    _list.add(value);
 }
 
 template <typename T>
@@ -41,7 +41,7 @@ T Deque<T>::peekFront()
 template <typename T>
 T Deque<T>::peekBack()
 {
-    return _list[_list.GetSize() - 1];
+    return _list[_list.getSize() - 1];
 }
 
 template <typename T>
