@@ -29,7 +29,6 @@ void Vector<T>::Add(T value) {
   if (_curr_size == _size) {
     AddMemory();
   }
-
   _arr[_curr_size] = value;
   _curr_size++;
 }
@@ -71,7 +70,8 @@ void Vector<T>::AddAt(T value, int index) {
 
 template <typename T>
 void Vector<T>::RemoveAll() {
-  ~Vector();
+  while(_size)
+  _size --;
 }
 
 template <typename T>
@@ -79,6 +79,7 @@ void Vector<T>::RemoveAt(int index) {
   for (int i = index; i < _curr_size; i++) {
     _arr[i] = _arr[i + 1];
   }
+  _size--;
   _curr_size--;
 }
 
@@ -106,9 +107,9 @@ Vector<T>::Vector(/* args */) {
 template <typename T>
 Vector<T>::~Vector() {
   delete[] _arr;
-  _size = 32;
+ /* _size = 32;
   _curr_size = 0;
-  _arr = new T[_size];
+  _arr = new T[_size];*/
 }
 
 #endif
