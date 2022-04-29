@@ -70,8 +70,12 @@ void Vector<T>::AddAt(T value, int index) {
 
 template <typename T>
 void Vector<T>::RemoveAll() {
-  while(_size)
-  _size --;
+  while(_size){
+    _size --;
+  }
+    while(_curr_size){
+    _curr_size --;
+  }
 }
 
 template <typename T>
@@ -98,7 +102,7 @@ ostream &operator<<(ostream &out, const Vector<T> &n) {
 }
 
 template <typename T>
-Vector<T>::Vector(/* args */) {
+Vector<T>::Vector() {
   _size = 32;
   _curr_size = 0;
   _arr = new T[_size];
@@ -107,9 +111,6 @@ Vector<T>::Vector(/* args */) {
 template <typename T>
 Vector<T>::~Vector() {
   delete[] _arr;
- /* _size = 32;
-  _curr_size = 0;
-  _arr = new T[_size];*/
 }
 
 #endif
