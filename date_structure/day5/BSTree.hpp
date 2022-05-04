@@ -19,7 +19,9 @@ public:
     void printBFS() { PrintBFS(root); }
     void sortPrint() { SortPrint(root); }
     void insertNode(int data) { insert(root, data); }
+    void deleted(int value);
     Node searchData(int data);
+    Node *searchPreviousData(int data);
 };
 
 void Tree::insert(Node *&node, int value)
@@ -114,5 +116,76 @@ Node Tree::searchData(int data)
             }
         }
         return *root;
+    }
+}
+
+void Tree::deleted(int value)
+{
+    Node *temp = searchData(value);
+    Node *curr;
+    curr = temp->right;
+    Node *previous;
+    if (curr != nullptr)
+    {
+        if (curr->right->left == nullptr)
+        {
+            temp->data = curr->data;
+            temp->right = curr->right;
+            delete curr;
+        }
+        else
+        {
+            previous = temp;
+            while (curr->left)
+            {
+                previous = curr;
+                curr = curr->left;
+            }
+            temp->data = curr->data;
+            previous->left = curr->right;
+
+            delete curr;
+        }
+    }
+    else
+    {
+        previous = searchPreviousData(value);
+        previous->left = temp->left;
+        delete temp;
+    }
+}
+
+Node *Tree::searchPreviousData(int data)
+{
+    if (root == nullptr)
+    {
+        cout << endl;
+        return root;
+    }
+    else
+    {
+        Node *temp = root;
+        while (temp)
+        {
+            if (data < temp->data)
+            {
+                if (temp->left->data == data)
+                {
+                    return temp;
+                }
+                temp = temp->left;
+            }
+            else
+            {
+                if (temp->right->data == data)
+                {
+                    return temp;
+                }
+                temp = temp->right;
+            }
+        }
+
+        cout << endl;
+        return root;
     }
 }
