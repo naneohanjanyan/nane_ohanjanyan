@@ -90,6 +90,7 @@ void List<T>::removeAll()
     while (_size)
     {
         removeFront();
+        _size--;
     }
 }
 
