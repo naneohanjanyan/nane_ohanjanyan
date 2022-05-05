@@ -97,32 +97,33 @@ int main() {
   int rootIndex;
   if (checkTree(arr, size)) {
     rootIndex = getRootIndex(arr, size);
-  }
 
-  int arr1[size];
-  arr1[0] = rootIndex;
+    int arr1[size];
+    arr1[0] = rootIndex;
 
-  int a = 1;
+    int a = 1;
 
-  for (int k = 0; k < size; k++) {
-    int i = arr1[k];
+    for (int k = 0; k < size; k++) {
+      int i = arr1[k];
 
-    for (int j = 0; j < size; j++) {
-      if (arr[i][j] == 1) {
-        arr1[a] = j;
-        a++;
+      for (int j = 0; j < size; j++) {
+        if (arr[i][j] == 1) {
+          arr1[a] = j;
+          a++;
+        }
       }
     }
+
+    Tree a1;
+    for (int i = 0; i < size; i++) {
+      a1.insertNode(arr1[i]);
+    }
+
+    a1.printDFS();
+
+    cout << endl;
+  } else {
+    cout << ">>>>>>>> ||||  It's not binary tree  |||||| <<<<<<<<<<<<<<  \n";
   }
-
-  Tree a1;
-  for (int i = 0; i < size; i++) {
-    a1.insertNode(arr1[i]);
-  }
-
-  a1.printDFS();
-
-  cout << endl;
-
   return 0;
 }
