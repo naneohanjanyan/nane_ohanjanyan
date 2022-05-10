@@ -9,6 +9,7 @@ private:
 
 public:
   Graph(int _size);
+  ~Graph();
   void inputMatrix(bool **, int);
   void addNode();
   void print();

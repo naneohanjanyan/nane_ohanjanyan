@@ -10,6 +10,12 @@ Graph::Graph(int _size)
   inputMatrix(arr, size);
 }
 
+Graph::~Graph()
+{
+  delete[] arr;
+  size = 0;
+}
+
 void Graph::inputMatrix(bool **arr, int size)
 {
   for (int i = 0; i < size; i++)
@@ -102,47 +108,42 @@ void Graph::removeEdge(int a, int b)
 
 bool Graph ::isEdgeExists(int a, int b)
 {
-  if (arr[a][b])
-  {
-    return true;
-  }
-  return false;
+  return arr[a][b];
 }
 
-bool Graph::isPathExists(int a, int b)
+bool Graph ::isPathExists(int node1, int node2)
 {
+  bool is_visited[size] = {false};
+  int connections[size];
 
-  if (arr[a][b])
+  is_visited[node1] = true;
+  connections[0] = node1;
+
+  int connArrIndex = 1;
+  int minPath = 1;
+
+  for (int k = 0; k < size; k++)
   {
-    return true;
-  }
-  else
-  {
-    for (int i = 0; i < size; i++)
+    int i = connections[k];
+
+    if (minPath <= k)
     {
-      if (arr[a][i])
+      return is_visited[node2];
+    }
+
+    for (int j = 0; j < size; j++)
+    {
+      if (arr[i][j] == 1 && is_visited[j] == false)
       {
-        if (arr[i][b])
-        {
-          return true;
-        }
-        else
-        {
-          for (int j = 0; j < size; j++)
-          {
-            if (arr[i][j] && i != a)
-            {
-              if (arr[j][b])
-              {
-                return true;
-              }
-            }
-          }
-        }
+        connections[connArrIndex] = j;
+        is_visited[j] = true;
+        connArrIndex++;
+        minPath++;
       }
     }
   }
-  return false;
+
+  return is_visited[node2];
 }
 
 void Graph::nodeNeighbrous(int a)
@@ -156,30 +157,49 @@ void Graph::nodeNeighbrous(int a)
   }
 }
 
-void Graph::nodeConnections(int a)
+void Graph ::nodeConnections(int x)
 {
-  rootIndex = a;
+  bool is_visited[size] = {false};
+  int connections[size];
 
-  int arrOfTree[size];
-  arrOfTree[0] = rootIndex;
+  is_visited[x] = true;
+  connections[0] = x;
 
-  int arrIndex = 1;
+  int connArrIndex = 1;
+  int minPath = 1;
 
   for (int k = 0; k < size; k++)
   {
-    int i = arrOfTree[k];
+    int i = connections[k];
+    if (minPath <= k)
+    {
+      for (int i = 0; i < size; i++)
+      {
+        if (is_visited[i])
+        {
+          cout << i << "  ";
+        }
+      }
+      return;
+    }
 
     for (int j = 0; j < size; j++)
     {
-      if (arr[i][j] == 1)
+      if (arr[i][j] == 1 && is_visited[j] == false)
       {
-        arrOfTree[arrIndex] = j;
-        arrIndex++;
+        connections[connArrIndex] = j;
+        is_visited[j] = true;
+        connArrIndex++;
+        minPath++;
       }
     }
   }
-  for(int i = 0; i < arrIndex; i++){
-    cout << arrOfTree[i] << "  ";
-  }
 
+  for (int i = 0; i < size; i++)
+  {
+    if (is_visited[i])
+    {
+      cout << i << "  ";
+    }
+  }
 }
