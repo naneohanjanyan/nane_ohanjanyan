@@ -105,7 +105,7 @@ void Graph::print()
   }
 }
 
-bool Graph::isEdgeExist(int node1, int node2)
+/*bool Graph::isEdgeExist(int node1, int node2)
 {
   if (arr[node1].getNode(node2))
   {
@@ -113,7 +113,7 @@ bool Graph::isEdgeExist(int node1, int node2)
   }
   return false;
 }
-
+*/
 void Graph::findNeighbrous(int node)
 {
   cout << node << " -> ";
