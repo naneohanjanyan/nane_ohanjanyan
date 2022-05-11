@@ -5,18 +5,15 @@
 using namespace std;
 
 template <typename T>
-class List
-{
-private:
+class List {
+ private:
   template <typename U>
-  class Node
-  {
-  public:
+  class Node {
+   public:
     Node *pNext;
     U data;
 
-    Node(U data = U(), Node *pNext = nullptr)
-    {
+    Node(U data = U(), Node *pNext = nullptr) {
       this->data = data;
       this->pNext = pNext;
     }
@@ -25,7 +22,7 @@ private:
   Node<T> *tail;
   int _size;
 
-public:
+ public:
   List();
   ~List();
   void addEnd(T);
@@ -40,30 +37,27 @@ public:
   bool getNode(int);
   T getElement(int);
   T &operator[](const int);
+  void _print1();
+  void dicreasListEl(int index);
 };
 
 template <typename T>
-List<T>::List()
-{
+List<T>::List() {
   head = nullptr;
   _size = 0;
 }
+
 template <typename T>
-List<T>::~List()
-{
+List<T>::~List() {
   removeAll();
 }
 
 template <typename T>
-void List<T>::addEnd(T data)
-{
-  if (head == nullptr)
-  {
+void List<T>::addEnd(T data) {
+  if (head == nullptr) {
     head = new Node<T>(data);
     tail = head;
-  }
-  else
-  {
+  } else {
     Node<T> *current = tail;
     current->pNext = new Node<T>(data);
     tail = current->pNext;
@@ -72,24 +66,18 @@ void List<T>::addEnd(T data)
 }
 
 template <typename T>
-void List<T>::addFront(T data)
-{
+void List<T>::addFront(T data) {
   head = new Node<T>(data, head);
   _size++;
 }
 
 template <typename T>
-void List<T>::addAt(T data, int index)
-{
-  if (index == 0)
-  {
+void List<T>::addAt(T data, int index) {
+  if (index == 0) {
     addFront(data);
-  }
-  else
-  {
+  } else {
     Node<T> *previous = this->head;
-    for (int i = 0; i < index - 1; i++)
-    {
+    for (int i = 0; i < index - 1; i++) {
       previous = previous->pNext;
     }
     Node<T> *newNode = new Node<T>(data, previous->pNext);
@@ -99,14 +87,11 @@ void List<T>::addAt(T data, int index)
 }
 
 template <typename T>
-T &List<T>::operator[](const int index)
-{
+T &List<T>::operator[](const int index) {
   Node<T> *current = this->head;
   int count = 0;
-  while (current != nullptr)
-  {
-    if (count == index)
-    {
+  while (current != nullptr) {
+    if (count == index) {
       return current->data;
     }
     current = current->pNext;
@@ -116,8 +101,7 @@ T &List<T>::operator[](const int index)
 }
 
 template <typename T>
-void List<T>::removeFront()
-{
+void List<T>::removeFront() {
   Node<T> *courrent = head;
   head = head->pNext;
   delete courrent;
@@ -125,26 +109,19 @@ void List<T>::removeFront()
 }
 
 template <typename T>
-void List<T>::removeAll()
-{
-  while (_size)
-  {
+void List<T>::removeAll() {
+  while (_size) {
     removeFront();
   }
 }
 
 template <typename T>
-void List<T>::removeAt(int index)
-{
-  if (index == 0)
-  {
+void List<T>::removeAt(int index) {
+  if (index == 0) {
     removeFront();
-  }
-  else
-  {
+  } else {
     Node<T> *cour1 = head;
-    for (int i = 0; i < (index - 1); i++)
-    {
+    for (int i = 0; i < (index - 1); i++) {
       cour1 = cour1->pNext;
     }
     Node<T> *cour2 = cour1->pNext;
@@ -155,14 +132,11 @@ void List<T>::removeAt(int index)
 }
 
 template <typename T>
-void List<T>::removeEnd()
-{
+void List<T>::removeEnd() {
   Node<T> *current = head;
-  for (int i = 0; i <= _size - 2; i++)
-  {
+  for (int i = 0; i <= _size - 2; i++) {
     current = current->pNext;
-    if (i == _size - 3)
-    {
+    if (i == _size - 3) {
       tail = current;
     }
   }
@@ -172,25 +146,19 @@ void List<T>::removeEnd()
 }
 
 template <typename T>
-T List<T>::getElement(int index)
-{
+T List<T>::getElement(int index) {
   Node<T> *curr = head;
-  for (int i = 0; i < index; i++)
-  {
+  for (int i = 0; i < index; i++) {
     curr = curr->pNext;
   }
   return curr->data;
 }
 
 template <typename T>
-bool List<T>::getNode(int index)
-{
-  Node<T> *head1;
-  head1 = head;
-  while (head1)
-  {
-    if (head1->data == index)
-    {
+bool List<T>::getNode(int index) {
+  Node<T> *head1 = head;
+  while (head1) {
+    if (head1->data == index) {
       return true;
     }
     head1 = head1->pNext;
@@ -199,13 +167,22 @@ bool List<T>::getNode(int index)
 }
 
 template <typename T>
-void List<T>::_print()
-{
+void List<T>::_print() {
   Node<T> *head1 = head;
-  while (head1)
-  {
+  while (head1) {
     cout << head1->data << ", ";
     head1 = head1->pNext;
+  }
+}
+
+template <typename T>
+void List<T>::dicreasListEl(int index) {
+  Node<T> *curr = head;
+  while (curr) {
+    if (curr->data > index) {
+      curr->data--;
+    }
+    curr = curr->pNext;
   }
 }
 

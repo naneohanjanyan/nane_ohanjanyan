@@ -1,14 +1,14 @@
 #include <iostream>
+
 #include "graphAdjacenyList.hpp"
 #include "list.h"
 
 using namespace std;
 
-int main()
-{
+int main() {
   Graph a1;
   cout << " add node\n";
-  ;
+
   a1.addNode();
   a1.addNode();
   a1.addNode();
@@ -25,7 +25,7 @@ int main()
   a1.addEdge(1, 2);
   a1.print();
 
- //cout << "\nedge exist: " << a1.isEdgeExist(0, 1);
+  cout << "\nedge exist: " << a1.isEdgeExist(0, 1);
 
   cout << "\n\n find neighbrous\n";
   a1.findNeighbrous(0);
@@ -35,7 +35,7 @@ int main()
   a1.print();
 
   cout << " \n\n remove node  \n";
-  a1.removeNode();
+  a1.removeNode(2);
   a1.print();
   cout << endl;
 
