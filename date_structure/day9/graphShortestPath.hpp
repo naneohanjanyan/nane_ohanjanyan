@@ -70,7 +70,7 @@ void Graph::findDistance(int startVertex)
 
     for (int j = 0; j < _size; j++)
     {
-      if (_arr[minWeightIndex][j] != INT_MAX && distance[minWeightIndex] != INT_MAX && distance[minWeightIndex] + _arr[minWeightIndex][j] < distance[j])
+      if (_arr[minWeightIndex][j] != INT_MAX && distance[minWeightIndex] + _arr[minWeightIndex][j] < distance[j])
       {
         distance[j] = distance[minWeightIndex] + _arr[minWeightIndex][j];
       }
