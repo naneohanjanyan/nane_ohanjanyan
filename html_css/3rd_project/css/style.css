@@ -11,6 +11,8 @@ html {
   scroll-behavior: smooth;
 }
 
+/* HEADER */
+
 header {
   background: rgba(51, 51, 51, 0.8);
   position: fixed;
@@ -50,6 +52,8 @@ header>img {
   color: rgb(255, 255, 255);
 }
 
+/* MAIN */
+
 main {
   background-size: cover;
   background-image: url("./../images/background.png");
@@ -87,7 +91,6 @@ main {
   padding: 18px 100px;
   background-color: unset;
   font-size: 17px;
-  /* font-weight: 400; */
   color: white;
   cursor: pointer;
 }
@@ -100,6 +103,8 @@ main {
 .navbar a:hover {
   color: rgb(158, 150, 150);
 }
+
+/* ABOUT SECTION */
 
 section.about {
   display: flex;
@@ -117,7 +122,7 @@ section.about {
   font-family: "Open Sans";
   font-size: 110%;
   line-height: 162.68%;
-  text-align: center;
+  text-align: justify;
   color: rgb(0, 0, 0);
   margin: 0px 15%;
 }
@@ -136,6 +141,8 @@ section.about {
   align-items: center;
   width: 560px;
 }
+
+/* CARDS SECTION */
 
 .card {
   display: flex;
@@ -208,6 +215,8 @@ section.about {
   border-right-color: #0dd868;
 }
 
+/* FOOTER SECTION */
+
 footer {
   background-color: rgb(52, 58, 64);
   display: flex;
@@ -264,4 +273,8 @@ footer p {
   line-height: 22px;
   text-align: center;
   color: rgb(248, 249, 250);
+}
+
+footer a:hover {
+  color: #cecece
 }
