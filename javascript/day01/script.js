@@ -42,25 +42,24 @@ if (priceAllProduct == 0) {
 
         let returnAmount = amountPaid - priceAllProduct;
 
-        console.log('Total: ', amountPaid)
-        console.log('Returt: ', returnAmount)
-        console.log('Costs: ', priceAllProduct);
+        console.log('Total: ', amountPaid, ' amd')
+        console.log('Returt: ', returnAmount, ' amd')
+        console.log('Costs: ', priceAllProduct, ' amd');
         console.log('Product: ');
 
         if (snickersQuantity != 0)
-            console.log('Snickers ~ ', snickersQuantity, ' ~ ', snickersQuantity * snickersPrice);
+            console.log('Snickers ~ ', snickersQuantity, ' pieces ~ ', snickersQuantity * snickersPrice, ' amd');
 
         if (colaQuantity != 0)
-            console.log('Cola ~ ', colaQuantity, ' ~ ', colaQuantity * colaPrice);
+            console.log('Cola ~ ', colaQuantity, ' pieces ~ ', colaQuantity * colaPrice, ' amd');
 
         if (jermukQuantity != 0)
-            console.log('Jermuk ~ ', jermukQuantity, ' ~ ', jermukQuantity * jermukPrice);
+            console.log('Jermuk ~ ', jermukQuantity, ' pieces ~ ', jermukQuantity * jermukPrice, ' amd');
 
         if (chocolateQuantity != 0)
-            console.log('Chocolate ~ ', chocolateQuantity, ' ~ ', chocolateQuantity * chocolatePrice);
+            console.log('Chocolate ~ ', chocolateQuantity, ' pieces ~ ', chocolateQuantity * chocolatePrice, ' amd');
 
         if (candyQuantity != 0)
-            console.log('Candy ~ ', candyQuantity, ' ~ ', candyQuantity * candyPrice);
+            console.log('Candy ~ ', candyQuantity, ' pieces ~ ', candyQuantity * candyPrice, ' amd');
     }
-
 }
