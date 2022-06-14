@@ -34,7 +34,7 @@ if (priceAllProduct == 0) {
 
         console.log('Wrong amount of money');
 
-    } else if (priceAllProduct() > amountPaid) {
+    } else if (priceAllProduct > amountPaid) {
 
         console.log('Your money is not enough for shopping.');
 
