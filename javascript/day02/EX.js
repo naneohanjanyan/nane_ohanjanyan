@@ -94,19 +94,6 @@ console.log(calcSums(arr));
 
 // ex 6 
 
-function anagramsChecked(str1, str2) {
-    str1 = str1.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
-    str2 = str2.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
-    return str1 === str2;
-}
-
-console.log('\n6th ex:')
-console.log(anagramsChecked('rail safety', 'fairy tales'));
-console.log(anagramsChecked('RAIL! SAFETY!', 'fairy tales'));
-console.log(anagramsChecked('Hi there', 'Bye there'));
-
-// ex 7
-
 function getUniqueCities(data) {
     const uniqueCitiesArr = [];
     for (let i = 0; i < data.length; i++) {
@@ -125,5 +112,19 @@ const data = [
     { id: 5, name: 'Name one', city: 'Erevan' },
 ];
 
-console.log('\n7th ex:')
+console.log('\n6th ex:')
 console.log(getUniqueCities(data));
+
+
+// ex 7
+
+function anagramsChecked(str1, str2) {
+    str1 = str1.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+    str2 = str2.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+    return str1 === str2;
+}
+
+console.log('\n7th ex:')
+console.log(anagramsChecked('rail safety', 'fairy tales'));
+console.log(anagramsChecked('RAIL! SAFETY!', 'fairy tales'));
+console.log(anagramsChecked('Hi there', 'Bye there'));
