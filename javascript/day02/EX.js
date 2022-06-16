@@ -2,19 +2,20 @@
 
 // ex 1
 
-function toUppercase(str){
-    const result = str.split(' ')
+function toUppercase(str) {
+    const result = str.trimStart().split(' ')
     result[0] = result[0].toUpperCase();
     const word = result.join(' ');
     return word;
 }
 
 console.log('1st ex:')
-console.log(toUppercase('javascript is a programming language'));
+console.log(toUppercase('                  javascript is a programming language'));
 
 // ex 2
 
 function sliceIntoChunks(arr, chunkSize) {
+    if (chunkSize <= 0) return arr;
     const result = [];
     for (let i = 0; i < arr.length; i += chunkSize) {
         const chunk = arr.slice(i, i + chunkSize);
@@ -54,10 +55,10 @@ console.log(sumObjectNumbers(myObject));
 
 function clacVowelCount(str) {
     let vowelCount = 0;
+    const vowelsArray = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U']
     for (let i = 0; i < str.length; i++) {
-        if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u') {
-            vowelCount++;
-        }
+        if (vowelsArray.includes(str[i]))
+            vowelCount++
     }
     return vowelCount;
 }
@@ -75,11 +76,7 @@ function calcSums(arr) {
         negative: null
     }
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] >= 0) {
-            sumObject.posititve += arr[i]
-        } else {
-            sumObject.negative += arr[i]
-        }
+        (arr[i] >= 0) ? sumObject.posititve += arr[i] : sumObject.negative += arr[i];
     }
     return sumObject;
 }
@@ -91,15 +88,14 @@ console.log(calcSums(arr));
 
 // ex 6 
 
-function getUniqueCities(citesObj) {
-    const uniqueCitiesArr = [];
-    for (let i = 0; i < citesObj.length; i++) {
-        const isExist = uniqueCitiesArr.find( ( { city }) => city === citesObj[i].city )
-        if (!isExist)
-            uniqueCitiesArr.push(citesObj[i]);
+function getUniqueCities(data) {
+    const cityArray = [];
+    for (let i = 0; i < data.length; i++) {
+        cityArray.push(data[i].city)
     }
-    return uniqueCitiesArr;
+    return new Set([...cityArray])
 }
+
 
 const data = [
     { id: 1, name: 'Name one', city: 'Stepanakert' },
