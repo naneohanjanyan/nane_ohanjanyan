@@ -2,18 +2,15 @@
 
 // ex 1
 
-function toUpperCaseFirstWord(str) {
-    let result = '';
-    let i
-    for (i = 0; str[i] != ' '; i++) {
-        result += str.charAt(i).toUpperCase();
-    }
-    result += str.slice(i);
-    return result;
+function toUppercase(str){
+    const result = str.split(' ')
+    result[0] = result[0].toUpperCase();
+    const word = result.join(' ');
+    return word;
 }
 
 console.log('1st ex:')
-console.log(toUpperCaseFirstWord('javascript is a programming language'));
+console.log(toUppercase('javascript is a programming language'));
 
 // ex 2
 
@@ -94,12 +91,12 @@ console.log(calcSums(arr));
 
 // ex 6 
 
-function getUniqueCities(data) {
+function getUniqueCities(citesObj) {
     const uniqueCitiesArr = [];
-    for (let i = 0; i < data.length; i++) {
-        const isExist = uniqueCitiesArr.find(({ city }) => city === data[i].city)
+    for (let i = 0; i < citesObj.length; i++) {
+        const isExist = uniqueCitiesArr.find( ( { city }) => city === citesObj[i].city )
         if (!isExist)
-            uniqueCitiesArr.push(data[i]);
+            uniqueCitiesArr.push(citesObj[i]);
     }
     return uniqueCitiesArr;
 }
