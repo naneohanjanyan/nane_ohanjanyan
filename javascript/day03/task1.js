@@ -10,21 +10,35 @@ console.log(newEmployeeData(employeeDataArray));
 
 // task 2
 
-const filterEmployeeBySalary = employeeDataArray.filter(data => Number(data.hr.salary.replace(/[^\w]/g, '')) >= 150000);
+const filterEmployeeBySalary = employeeDataArray.filter(data => Number(data.hr.salary.replace(',', '').replace('$', '')) >= 150000);
 console.log(filterEmployeeBySalary);
 
 
 // task 3
+
 
 const startDateArr = employeeDataArray.map(n => new Date(n.hr.start_date))
 const minDate = new Date(Math.min.apply(null, startDateArr)).getTime();
 const oldestEmployee = employeeDataArray.filter(emp => new Date(emp.hr.start_date).getTime() === minDate)
 console.log(oldestEmployee);
 
+
 // task 4
 
-const addBonus = employeeDataArray.filter(d => Number(d.hr.salary.replace(/[^\w]/g, '')) <= 100000)
+/* const addBonus = employeeDataArray.filter(d => Number(d.hr.salary.replace(/[^\w]/g, '')) <= 100000)
     .map(d => ({ ...d, hr: { ...d.hr, bonus: `${Number(d.hr.salary.replace(/[^\w]/g, '')) * 20 / 100}` } }));
+ */
+
+const addBonus = [];
+for (const index in employeeDataArray) {
+    let newArrIndex = 0;
+    const salary = Number(employeeDataArray[index].hr.salary.replace(',', '').replace('$', ''));
+    if (salary <= 100000) {
+        addBonus.push(employeeDataArray[index]);
+        addBonus[newArrIndex].hr.bonus = (salary * 20) / 100;
+        newArrIndex++;
+    }
+}
 
 console.log(addBonus);
 
