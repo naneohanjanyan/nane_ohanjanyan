@@ -30,22 +30,12 @@ class Database {
         values: [Database.id, ...values],
       });
     }
-    localStorage.setItem("db", JSON.stringify(arr));
+    this.save(arr);
     Database.id++;
   }
-}
 
-class Table {
-  columns;
-  values;
-  constructor(name) {
-    this.name = name;
+  save(arr) {
+    localStorage.setItem("db", JSON.stringify(arr));
   }
 }
 
-let temp = Database.get();
-temp.createTable("user", ["username", "password"], ["Nane", "asd"]);
-temp.createTable("admin", ["username", "password", 'age'], ["Gagik", "xyz", 25]);
-
-console.log(temp.getTable("admin"));
-console.log(temp.getTable("user"));
