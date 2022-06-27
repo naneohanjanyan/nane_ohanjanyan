@@ -1,4 +1,9 @@
+if (sessionStorage.getItem('highScoore') !== null) {
+    document.querySelector('#scoreValue').innerText = sessionStorage.getItem('highScoore');
+}
+
 let random = Math.floor(Math.random() * 101);
+alert(random);
 let num = document.querySelector("#input");
 let count = document.querySelector("#countValue");
 let score = document.querySelector("#scoreValue");
@@ -27,11 +32,13 @@ function outpuWin() {
 
 function calcCount() {
     let count1 = Number(count.innerText) - 1;
-    document.querySelector("#countValue").innerHTML = count1;
-    if (count1 <= 0) {
+    if (count1 === 0) {
         outputLoss();
+        document.removeEventListener("keydown", calcCount);
+        document.querySelector("#countValue").innerHTML = 0;
         return;
     }
+    document.querySelector("#countValue").innerHTML = count1;
 }
 
 button.onclick = () => {
