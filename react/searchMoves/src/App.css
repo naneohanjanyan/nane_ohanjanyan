@@ -5,9 +5,17 @@
   text-align: center;
 }
 
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
 div#films {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-gap: 620px;
+  column-gap: 100px;
+  grid-template-columns: repeat(6, 150px);
+  grid-template-rows: repeat(2, 150px);
 }
 
 input#input {
@@ -16,14 +24,23 @@ input#input {
 }
 
 .style {
-  display: flex;
-  flex-direction: column;
-  margin: 0 26px;
+  box-shadow: 5px 10px #888888;
+  padding: 20px;
+  border: 2px solid;
+  width: 240px;
+  height: 750px;
+  display: grid;
+  grid-gap: 100px;
+  grid-template-columns: repeat(1, 150px);
+  grid-template-rows: repeat(3, 150px);
+  justify-content: center;
+  place-items: center;
+  margin: 0 10px;
 }
 
 img {
-  width: 100%;
-  height: 49%;
+  width: 150%;
+  margin-top: -27px;
 }
 
 p.title {
@@ -32,5 +49,6 @@ p.title {
 }
 
 p.description {
-  font-size: 20px !important;
+  font-size: 15px !important;
+  margin-top: 60px;
 }
