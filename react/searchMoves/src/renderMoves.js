@@ -1,6 +1,5 @@
 import "./App";
 import "./App.css";
-
 import arr from "./arrayMovies";
 
 export let filterArr = arr;
@@ -14,7 +13,6 @@ export function moviesFilter(name) {
                     value.name.toLowerCase().substring(0, name.length) ===
                     name.toLowerCase()
             );
-
     return newArr;
 }
 
