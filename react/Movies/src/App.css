@@ -39,7 +39,7 @@ button {
   padding: 20px;
   border: 2px solid;
   width: 240px;
-  height: 640px;
+  height: 740px;
   display: grid;
   grid-gap: 35px;
   grid-template-columns: repeat(1, 150px);
@@ -61,5 +61,5 @@ p.title {
 
 p.description {
   font-size: 15px !important;
-  margin-top: 60px;
+  margin-top: 25px;
 }

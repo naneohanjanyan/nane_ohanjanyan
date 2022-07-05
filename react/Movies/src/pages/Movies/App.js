@@ -1,23 +1,14 @@
-import { changedArr, RenderMovies } from "./renderMoves";
+import { changedArr, RenderMovies } from '../../renderMoves';
+import { moviesFilter } from './moviesFilter';
 import { useEffect, useState, useRef } from "react";
-import Button from "./Button/Button";
-import Modal from "./Modal/Modal";
-import moviesContainer from "./MoviesContainer";
-import Spider from "./images/download.jpeg";
+import Button from "../../Button/Button";
+import Modal from "../../Modal/Modal";
+import moviesContainer from "../../MoviesContainer";
+import Spider from '../../images/download.jpeg';
 
-function moviesFilter(name) {
-  const filteredАrr =
-    name == ""
-      ? changedArr
-      : changedArr.filter(
-        (value) =>
-          value.name.toLowerCase().substring(0, name.length) ===
-          name.toLowerCase()
-      );
-  return filteredАrr;
-}
 
 export function App() {
+  
   const [count, setCount] = useState(moviesContainer.length);
   const [name, setName] = useState('');
   const [newArr, setNewArr] = useState([]);
