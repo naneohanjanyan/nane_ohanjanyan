@@ -1,0 +1,19 @@
+.usersList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 96vw;
+    height: 97vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    margin: 20px 0;
+}
